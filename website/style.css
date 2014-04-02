@@ -11,33 +11,33 @@ p {
 
 #main {
 	padding: 0;
-	border: 0;
 	width: 900px;
 	height: 600px;
 	margin: 0 auto;
-	border: 2px inset #FFD700;
+	border: 2px ridge #FFD700;
 
 }
 
 #actions {
 	margin: 0;
 	padding: 0;
-	border: 0;
+	/*border: 0;*/
 	width: 100px;
 	height: 300px;
-	background-color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 255, 255, .6);
 	position:relative;
 	left:0px;
 	top:0px;
+	border: 2px ridge #FFD700;
 }
 
 #city {
 	margin: 0;
 	padding: 0;
-	border: 0;
+	/*border: 0;*/
 	width: 600px;
 	height: 600px;
-	background: url(http://placekitten.com/600/600) no-repeat;
+	background-image: url("images/city.jpg");
 	position:relative;
 	left:0px;
 	top:0px;
@@ -46,7 +46,7 @@ p {
 #footer {
 	margin: 0;
 	padding: 0;
-	border: 0;
+	/*border: 0;*/
 	width: 600px;
 	height: 20px;
 	background-color: white;
@@ -160,7 +160,7 @@ p {
 }
 
 img {
-	border: 1px solid black;
+	border: 0;
 }
 
 .task {
@@ -181,4 +181,111 @@ img {
 
 h4 {
 	margin: 0;
+}
+
+#structures img {
+	border: 0;
+	position: absolute;
+}
+
+.pyramid {
+	background: url('pyramid.png');
+	top: 37px; 
+	left: 100px;
+}
+
+.pyramid:hover {
+   background: url('pyramid-h.png');
+}
+
+
+
+
+/*
+ * SimpleModal OSX Style Modal Dialog
+ * http://simplemodal.com
+ *
+ * Copyright (c) 2013 Eric Martin - http://ericmmartin.com
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ */
+
+#osx-modal-content, #osx-modal-data {display:none;}
+
+/* Overlay */
+#osx-overlay {background-color:#000;}
+
+/* Container */
+#osx-container {background-color:#eee; color:#000; font: 16px/24px "Lucida Grande",Arial,sans-serif; padding-bottom:4px; width:600px; -moz-border-radius-bottomleft:6px; -webkit-border-bottom-left-radius:6px; -moz-border-radius-bottomright:6px; -webkit-border-bottom-right-radius:6px; -moz-border-radius-topleft:6px; -webkit-border-top-left-radius:6px; -moz-border-radius-topright:6px; -webkit-border-top-right-radius:6px; border-radius:6px 6px 6px 6px; -moz-box-shadow:0 0 64px #000; -webkit-box-shadow:0 0 64px #000; box-shadow:0 0 64px #000;}
+#osx-container a {color:#ddd;}
+#osx-container #osx-modal-title {color:#000; background-color:#ddd; border-bottom:1px solid #ccc; font-weight:bold; padding:6px 8px; text-shadow:0 1px 0 #f4f4f4;}
+#osx-container .close {display:none; position:absolute; right:0; top:0;}
+#osx-container .close a {display:block; color:#777; font-weight:bold; padding:6px 12px 0; text-decoration:none; text-shadow:0 1px 0 #f4f4f4;}
+#osx-container .close a:hover {color:#000;}
+#osx-container #osx-modal-data {font-size:12px; padding:6px 12px;}
+#osx-container h2 {margin:10px 0 6px;}
+#osx-container p {margin-bottom:10px;}
+#osx-container span {color:#777;}
+
+
+
+
+
+/****basic****/
+.mymodal {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#555;}
+
+/* Container */
+#simplemodal-container {height:400px; width:400px; color:#333; background: url("images/blueprint.jpg"); padding:0px; -moz-border-radius-bottomleft:6px; -webkit-border-bottom-left-radius:6px; -moz-border-radius-bottomright:6px; -webkit-border-bottom-right-radius:6px; border-radius:6px 6px 6px 6px; -moz-box-shadow:0 0 64px #000; -webkit-box-shadow:0 0 64px #000; box-shadow:0 0 64px #000; position: relative;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a {color:#ddd;}
+
+
+
+.mymodal h2 {
+	color:#000; 
+	margin: 0;
+	background-color: rgba(255,255,255,.6); 
+	font-weight:bold; 
+	padding: 8px;
+	text-shadow:0 1px 0 #f4f4f4;
+	text-align: left;
+	border-radius: 6px;
+}
+.mymodal h3 {
+	color:#000; 
+	margin: 0;
+	font-size: 1em;
+	text-align: right;
+	vertical-align: top;
+}
+.mymodal p {
+	text-align: left;
+}
+
+.mymodal td{
+	vertical-align: top;
+	padding: 5px;
+}
+.mymodal img{
+	height: 45px;
+	margin: 10px;
+}
+
+.modal-actions {
+	width: 100%;
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+}
+
+qtip {
+	position: {
+             		target: 'mouse', // Track the mouse as the positioning target
+             		adjust: { x: 10, y: 10 } // Offset it slightly from under the mouse
+         		}
 }

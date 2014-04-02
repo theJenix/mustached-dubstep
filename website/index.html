@@ -6,20 +6,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
 
-    <script type="text/x-serialization" id="gwd-serialization">
+	<script src="jquery-1.11.0.js"></script>
+    <script src="jquery.qtip.min.js"></script>
+    <script src="jquery.simplemodal-1.4.4.js"></script>
+	<link href="jquery.qtip.min.css" rel="stylesheet" type="text/css" />
 
-    </script>
+	<script type="text/javascript">
+	$.fn.qtip.defaults.position.target = "mouse";
+	$.fn.qtip.defaults.position.adjust.x = 10;
+	$.fn.qtip.defaults.position.adjust.y = 10;
+	
+
+		$(document).ready(function() {
+        	$('#pyramid').qtip({ content: 'Pyramid of Finals' });
+        	$('#checkmark2').qtip({ content: 'Save' });
+        	$('#edit-task').qtip({ content: 'Edit' });
+        	$('#checkmark3').qtip({ content: 'OK' });
+        	$('#bulldozer').qtip({ content: 'Remove' });
+        	$('#bulldozer2').qtip({ content: 'Remove' });
+        	$('#hall').qtip({ content: 'Hall of CS 3230 HW' });
+        	$('#ui-design-pt3').qtip({ content: 'House of UI Design Pt. 3<br>Due: April 4, 2014<br>Progress: 75%' });
+        	$('#uidesign').qtip({ content: 'UI Design<br>MWF 9:00am' });
+        	$('#conducting').qtip({ content: 'Conducting' });
+        	$('#weaving').qtip({ content: 'Underwater Basketweaving' });
+        	$('#drownproofing').qtip({ content: 'Drownproofing' });
+        	$('#scaling').qtip({ content: 'Scaling Urban Structures' });
+         	
+         	
+         	$('#hammer').hover(function(){this.src='images/hammer-h.png';}, function(){this.src="images/hammer.png";});
+         	$('#scroll').hover(function(){this.src='images/scroll-h.png';}, function(){this.src="images/scroll.png";});
+         	$('#calendar').hover(function(){this.src='images/calendar-h.png';}, function(){this.src="images/calendar.png";});
+         	$('#pencil').hover(function(){this.src='images/pencil-h.png';}, function(){this.src="images/pencil.png";});
+         	$('#checkmark').hover(function(){this.src='images/checkmark-h.png';}, function(){this.src="images/checkmark.png";});
+         });
+
+         
+        jQuery(function ($) {
+			// Load dialog on click
+			$('#ui-design-pt3').click(function (e) {
+				$('#ui-design-pt3-modal-content').modal();
+				return false;
+			});
+			$('#edit-task').click(function (e) {
+				$.modal.close();
+				$('#ui-design-pt3-edit-modal-content').modal();
+				return false;
+			});
+		});
+		
+	</script>
   </head>
   
   <body>
+		<!-- modal content -->
+		
+		<div class="mymodal" id="ui-design-pt3-modal-content">
+			<h2>Task Details</h2>
+			<table style="margin: auto;">
+				<tr><td><h3>Name:</h3></td><td><p>UI Design Pt. 3</p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p>11:55pm April 4, 2014</p></td></tr>
+				<tr><td><h3>Estimated Time:</h3></td><td><p>6 hours</p></td></tr>
+				<tr><td><h3>Priority:</h3></td><td><p>High</p></td></tr>
+				<tr><td><h3>Progress:</h3></td><td><p>75%</p></td></tr>
+				<tr><td><h3>Notes:</h3></td><td><p>Group meeting Wednesday<br>Create images<br>Work on paper</p></td></tr>	
+				
+			</table>
+				<div class="modal-actions"><img id="edit-task" src="images/pencil.png" onmouseover="this.src='images/pencil-h.png'"
+onmouseout="this.src='images/pencil.png'" "/>
+    			<img class="simplemodal-close" id="checkmark3" src="images/checkmark.png" onmouseover="this.src='images/checkmark-h.png'"
+onmouseout="this.src='images/checkmark.png'" />
+    			<img id="bulldozer" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
+onmouseout="this.src='images/bulldozer.png'" />
+    			</div>
+		</div>
+		
+		
+		<div class="mymodal" id="ui-design-pt3-edit-modal-content">
+			<h2>Task Details</h2>
+			<table style="margin: auto;">
+				<tr><td><h3>Name:</h3></td><td><p><input type="text" value="UI Design Pt. 3"></p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="11:55pm April 4, 2014"></p></td></tr>
+				<tr><td><h3>Estimated Time:</h3></td><td><p><input type="text" value="6"> hours</p></td></tr>
+				<tr><td><h3>Priority:</h3></td><td><p><select>
+<option value="high" selected>High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+</select></p></td></tr>
+				<tr><td><h3>Progress:</h3></td><td><p><input type="text" value="75">%</p></td></tr>
+				<tr><td><h3>Notes:</h3></td><td><p><textarea rows="5" cols="20">
+Group meeting Wednesday
+Create images
+Work on paper
+</textarea></p></td></tr>	
+				
+			</table>
+				<div class="modal-actions">
+    			<img class="simplemodal-close" id="checkmark2" src="images/checkmark.png" onmouseover="this.src='images/checkmark-h.png'"
+onmouseout="this.src='images/checkmark.png'" />
+    			<img id="bulldozer2" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
+onmouseout="this.src='images/bulldozer.png'" />
+    			</div>
+		</div>
+		
+		
+		<!--^modal content^-->
+		
     <div id="main">
     	<div id="city">
+    		<div id="structures">
+    			<img id="pyramid" src="images/pyramid.png" style="top: 37px; left: 100px;" onmouseover="this.src='images/pyramid-h.png'"
+onmouseout="this.src='images/pyramid.png'" />
+    			<img id="hall" src="images/hall.png" style="top: 319px; left: 215px;" 
+    			onmouseover="this.src='images/hall-h.png'"
+onmouseout="this.src='images/hall.png'"/>
+    			<img id="ui-design-pt3" src="images/ui-house.png" style="top: 409px; left: 342px;" 
+    			onmouseover="this.src='images/ui-house-h.png'"
+onmouseout="this.src='images/ui-house.png'"/>
+
+				<img id="uidesign" src="images/uidesign.png" style="top: 394px; left: 322px;" 
+    			onmouseover="this.src='images/uidesign-h.png'"
+onmouseout="this.src='images/uidesign.png'"/>
+				<img id="conducting" src="images/conducting.png" style="top: 291px; left: 347px;" 
+    			onmouseover="this.src='images/conducting-h.png'"
+onmouseout="this.src='images/conducting.png'"/>
+				<img id="weaving" src="images/weaving.png" style="top: 431px; left: 425px;" 
+    			onmouseover="this.src='images/weaving-h.png'"
+onmouseout="this.src='images/weaving.png'"/>
+				<img id="drownproofing" src="images/drownproofing.png" style="top: 473px; left: 182px;" 
+    			onmouseover="this.src='images/drownproofing-h.png'"
+onmouseout="this.src='images/drownproofing.png'"/>
+				<img id="scaling" src="images/scaling.png" style="top: 28px; left: 448px;" 
+    			onmouseover="this.src='images/scaling-h.png'"
+onmouseout="this.src='images/scaling.png'"/>
+    		
+    		</div> <!--structures-->
     		<div id="actions">
-    			<img src="images/hammer.png" width="80px" padding="10px"></img>
+    			<img id="hammer" src="images/hammer.png" width="70px" padding="10px"></img>
     			<p>Add Task</p>
-    			<img src="images/scroll.jpg" width="80px" padding="10px"></img>
+    			<img id="scroll" src="images/scroll.png" width="70px" padding="10px"></img>
     			<p>View Tasks</p>
-    			<img src="images/calendar.jpg" width="80px" padding="10px"></img>
+    			<img id="calendar" src="images/calendar.png" width="70px" padding="10px"></img>
     			<p>View Calendar</p>
     		</div> <!--actions-->
     		<div id="footer">
@@ -51,8 +177,8 @@
     			</ul>
     		</div> <!--today-->
     		<div id="edit">
-    			<img src="images/pencil.png" height="35px" style="margin-right: 50px; margin-top: 7.5px;"/>
-    			<img src="images/checkmark.jpg" height="35px" style=" margin-top: 7.5px;" />
+    			<img id="pencil" src="images/pencil.png" height="35px" style="margin-right: 50px; margin-top: 7.5px;"/>
+    			<img id="checkmark" src="images/checkmark.png" height="35px" style=" margin-top: 7.5px;" />
     		</div> <!--edit-->
     		
     		<div id="tomorrow-hdr">
