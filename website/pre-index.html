@@ -16,10 +16,6 @@
 	
 
 		$(document).ready(function() {
-			$(function() {
-    			$( document ).tooltip();
-  			});
-  			
         	$('#pyramid').attr("title", 'Finals' );
         	$('.floppydisk').attr("title", 'Save' );
         	$('#edit-task').attr("title", 'Edit' );
@@ -37,9 +33,10 @@
         	$('.x').attr("title","Not completed?");
         	$('#checkmark').attr("title", "Click if all of today's tasks were completed" );
         	$('#x').attr("title", "Click if none of today's tasks were completed" );
-         	
-         	$('.next-arrow').attr("title", 'Next' );
+        	
+        	$('.next-arrow').attr("title", 'Next' );
         	$('.prev-arrow').attr("title", 'Previous' );
+         	
          	
          	$('#hammer').hover(function(){this.src='images/hammer-h.png';}, function(){this.src="images/hammer.png";});
          	$('#scroll').hover(function(){this.src='images/scroll-h.png';}, function(){this.src="images/scroll.png";});
@@ -58,8 +55,29 @@
         	$("[title]").each(function(){
     			$(this).tooltip({ content: $(this).attr("title")});
 			});    // It allows html content to tooltip.
-
+			
 			// Load dialog on click
+			$('#setup1').modal();
+			$('#setup1-next').click(function (e) {
+				$.modal.close();
+				$('#setup2').modal();
+				return false;
+			});
+			$('#setup2-next').click(function (e) {
+				$.modal.close();
+				$('#setup3').modal();
+				return false;
+			});
+			$('#setup2-prev').click(function (e) {
+				$.modal.close();
+				$('#setup1').modal();
+				return false;
+			});
+			$('#setup3-prev').click(function (e) {
+				$.modal.close();
+				$('#setup2').modal();
+				return false;
+			});
 			$('#ui-design-pt3').click(function (e) {
 				$('#ui-design-pt3-modal-content').modal();
 				return false;
@@ -104,6 +122,7 @@
 			
 			$(function() {
     			$( ".datepicker" ).datetimepicker();
+    			$( ".timepicker" ).timepicker();
     			$( ".timespinner" ).spinner({
     				min: 0,
       				step: 0.5,
@@ -126,115 +145,56 @@
   <body>
 		<!-- modal content -->
 		
-		<div class="mymodal addmodal" id="add1">
-			<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
-			<h2>Add</h2>
-			<img class="blok" src="images/transparentBlok.png" />
+		<div class="mymodal" id="setup1">
+			<h2>Welcome to Priori City</h2>
+			<img class="blok" src="images/transparentVirgil.png" />
 			<table style="margin: auto; text-align: left;">
-				<tr><td><h3 style="text-align: left;">Howdy Architect!<br>What would you like to add?</h3></td></tr>
-				<tr><td><input name="type" type="radio" value="task" checked>Task<br>
-<input type="radio" name="type" value="event">Event</td></tr>	
+				<tr><td><h3 style="text-align: left;">Welcome to Priori City, where tasks and events that you complete help build our city and attract residents! I am Virgil, your advisor. I am eager to get started, but first I need some information. Let's begin!</h3></td></tr>	
 			</table>
 			
 			<div class="modal-arrows">
-				<p><button style="float: left; margin-top: 8px; margin-right: 10px;" class="simplemodal-close">Cancel</button><span style="padding-right: 10px; color: #666;">&#10094;</span><a id="add1-next" class="next-arrow" href="#">&#10095;</a></p>
+				<p><span style="padding-right: 10px; color: #666;">&#10094;</span><a id="setup1-next" class="next-arrow" href="#">&#10095;</a></p>
 			</div>
 		</div>
 		
-		<div class="mymodal addmodal" id="add2">
-			<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
-			<h2>Add Task</h2>
-			<img class="blok" src="images/transparentBlok.png" />
+		<div class="mymodal" id="setup2">
+			<h2>Welcome to Priori City</h2>
+			<img class="blok" src="images/transparentVirgil.png" />
 			<table style="margin: auto; text-align: left;">
-				<tr><td colspan="2"><h3 style="text-align: left;">Tasks help build our city! What's the plan?</h3></td></tr>
-				<tr><td><h3>Name:</h3></td><td><p><input type="text"></p></td></tr>
-				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" class="datepicker" ></p></td></tr>
-				<tr><td><h3>Estimated Time:</h3></td><td><p><input class="timespinner" value="2.0"> hours</p></td></tr>
-				<tr><td><h3>Priority:</h3></td><td><p><select>
-<option value="high" selected>High</option>
-<option value="medium">Medium</option>
-<option value="low">Low</option>
-</select></p></td></tr>
-				<tr><td><h3>Progress:</h3></td><td><p><input class="progressspinner" value="0">%</p></td></tr>
-				<tr><td><h3>Notes:</h3></td><td><p><textarea rows="5" cols="20"> </textarea></p></td></tr>	
+				<tr><td colspan="2"><h3 style="text-align: left;">Here you can customize your settings...</h3></td></tr>
+				<tr><td width="200px"><h3 style="text-align: left;">When do you start your day?</h3></td><td><p><input type="text" class="timepicker"></p></td></tr>
+				<tr><td><h3 style="text-align: left;">When do you end your day?</h3></td><td><p><input type="text" class="timepicker" ></p></td></tr>
+				<tr><td><h3 style="text-align: left;">How long do you want to work on one project at a time?</h3></td><td><p><input class="timespinner" value="2.0"> hours</p></td></tr>
 			</table>
 			
 			<div class="modal-arrows">
-				<p><button style="float: left; margin-top: 8px; margin-right: 10px;" class="simplemodal-close">Cancel</button><a id="add2-prev" class="prev-arrow" href="#" style="padding-right: 10px;">&#10094;</a><a id="add2-next" class="next-arrow" href="#">&#10095;</a></p>
+				<p><a id="setup2-prev" class="prev-arrow" href="#" style="padding-right: 10px;">&#10094;</a><a id="setup2-next" class="next-arrow" href="#">&#10095;</a></p>
 			</div>
 		</div>
 		
-		<div class="mymodal addmodal" id="add3">
-			<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
-			<h2>Add Task</h2>
-			<img class="blok" src="images/transparentBlok.png" />
-			<table style="margin: auto;">
-				<tr><td><h3 style="text-align: left;">According to those specifications, here are some options of what you can build!</h3></td></tr>
-				<tr><td><div class="modal-options"><input name="type" type="radio" value="house" checked><img src="images/house-option.png" /><input name="type" type="radio" value="house"><img src="images/house-option.png" /><input name="type" type="radio" value="house"><img src="images/house-option.png" /></div></td></tr>
-				<tr><td><button id="finish" onclick="$.modal.close(); window.location.href = 'index2.html';">Finish!</button></td></tr>	
+				<div class="mymodal" id="setup3">
+			<h2>Welcome to Priori City</h2>
+			<img class="blok" src="images/transparentVirgil.png" />
+			<table style="margin: auto; text-align: left;">
+				<tr><td><h3 style="text-align: left;">Here's what will happen...</h3></td></tr>
+				<tr><td width="200px"><h3 style="text-align: left;">I will schedule tasks for you between the hours of 8:00 and 18:00.</h3></td></tr>
+				<tr><td><h3 style="text-align: left;">Your tasks will be broken up into work periods of 2 hours at a time.</td></tr>
+				<tr><td><h3 style="text-align: left;">You can always view and change these preferences by going to <a href="#">Settings</a>.</td></tr>
+				<tr><td><button id="finish-setup" onclick="$.modal.close(); window.location.href = 'index.html';">Take me to Priori City!</button></td></tr>
 			</table>
 			
 			<div class="modal-arrows">
-				<p><button style="float: left; margin-top: 8px; margin-right: 10px;" class="simplemodal-close">Cancel</button><a id="add3-prev" style="padding-right: 10px;" class="prev-arrow" href="#">&#10094;</a><span style="color: #666;">&#10095;</span></p>
+				<p><a id="setup3-prev" class="prev-arrow" style="padding-right: 10px;" href="#">&#10094;</a><span style="color: #666;">&#10095;</span></p>
 			</div>
 		</div>
 		
-		
-		<div class="mymodal" id="ui-design-pt3-modal-content">
-		<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
-			<h2>Task Details</h2>
-			<table style="margin: auto;">
-				<tr><td><h3>Name:</h3></td><td><p>UI Design Pt. 3</p></td></tr>
-				<tr><td><h3>Deadline:</h3></td><td><p>11:55pm April 4, 2014</p></td></tr>
-				<tr><td><h3>Estimated Time:</h3></td><td><p>6 hours</p></td></tr>
-				<tr><td><h3>Priority:</h3></td><td><p>High</p></td></tr>
-				<tr><td><h3>Progress:</h3></td><td><p>75%</p></td></tr>
-				<tr><td><h3>Notes:</h3></td><td><p>Group meeting Wednesday<br>Create images<br>Work on paper</p></td></tr>	
-				
-			</table>
-				<div class="modal-actions"><img id="edit-task" title="Edit" src="images/pencil.png" onmouseover="this.src='images/pencil-h.png'"
-onmouseout="this.src='images/pencil.png'" "/>
-    			<img class="bulldozer" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
-onmouseout="this.src='images/bulldozer.png'" />
-    			</div>
-		</div>
-		
-		
-		<div class="mymodal" id="ui-design-pt3-edit-modal-content">
-		<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
-			<h2>Task Details</h2>
-			<table style="margin: auto;">
-				<tr><td><h3>Name:</h3></td><td><p><input type="text" value="UI Design Pt. 3"></p></td></tr>
-				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="04/04/2014 23:55" class="datepicker"></p></td></tr>
-				<tr><td><h3>Estimated Time:</h3></td><td><p><input id="timespinner" value="6.0"> hours</p></td></tr>
-				<tr><td><h3>Priority:</h3></td><td><p><select>
-<option value="high" selected>High</option>
-<option value="medium">Medium</option>
-<option value="low">Low</option>
-</select></p></td></tr>
-				<tr><td><h3>Progress:</h3></td><td><p><input id="progressspinner" value="75">%</p></td></tr>
-				<tr><td><h3>Notes:</h3></td><td><p><textarea rows="5" cols="20">
-Group meeting Wednesday
-Create images
-Work on paper
-</textarea></p></td></tr>	
-				
-			</table>
-				<div class="modal-actions">
-    			<img class="simplemodal-close floppydisk" src="images/floppy-disk-icon.png" onmouseover="this.src='images/floppy-disk-icon-h.png'"
-onmouseout="this.src='images/floppy-disk-icon.png'" />
-    			<img class="bulldozer" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
-onmouseout="this.src='images/bulldozer.png'" />
-    			</div>
-		</div>
-		
-		
+
 		<!--^modal content^-->
 		
     <div id="main">
     	<div id="city">
     		<div id="structures">
-    			<img id="pyramid" class="tooltip" title="Finals" src="images/pyramid.png" style="top: 37px; left: 100px;" onmouseover="this.src='images/pyramid-h.png'"
+    			<img id="pyramid" src="images/pyramid.png" style="top: 37px; left: 100px;" onmouseover="this.src='images/pyramid-h.png'"
 onmouseout="this.src='images/pyramid.png'" />
     			<img id="hall" src="images/hall.png" style="top: 319px; left: 215px;" 
     			onmouseover="this.src='images/hall-h.png'"
@@ -261,9 +221,9 @@ onmouseout="this.src='images/scaling.png'"/>
     		
     		</div> <!--structures-->
     		<div id="actions">
-    			<a href="#"><img id="hammer" title="Add" src="images/hammer.png" /></a>
-    			<a href="#"><img id="scroll" title="View Tasks" src="images/scroll.png" /></a>
-    			<a href="#"><img id="calendar" title="View Calendar" src="images/calendar.png" /></a>
+    			<a href="#"><img id="hammer" src="images/hammer.png" /></a>
+    			<img id="scroll" src="images/scroll.png" />
+    			<img id="calendar" src="images/calendar.png" />
     		</div> <!--actions-->
     		<div id="footer">
     		<p><span style="float:left; padding-left:5px;">11:47 AM</span><span style="float:right; padding-right:5px;">850 Blokes</span></p>

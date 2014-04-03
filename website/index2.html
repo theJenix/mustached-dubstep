@@ -9,38 +9,35 @@
 	<script src="jquery-1.11.0.js"></script>
 	<script src="jqueryui/jquery-ui-1.10.4.js"></script>
 	<script src="jquery-ui-timepicker-addon.js"></script>
-    <script src="jquery.qtip.min.js"></script>
     <script src="jquery.simplemodal-1.4.4.js"></script>
-	<link href="jquery.qtip.min.css" rel="stylesheet" type="text/css" />
 	<link href="jqueryui/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css" />
 
 	<script type="text/javascript">
-	$.fn.qtip.defaults.position.target = "mouse";
-	$.fn.qtip.defaults.position.adjust.x = 10;
-	$.fn.qtip.defaults.position.adjust.y = 10;
 	
 
 		$(document).ready(function() {
-        	$('#pyramid').qtip({ content: 'Finals' });
-        	$('.floppydisk').qtip({ content: 'Save' });
-        	$('#edit-task').qtip({ content: 'Edit' });
-        	$('#checkmark3').qtip({ content: 'OK' });
-        	$('.bulldozer').qtip({ content: 'Remove' });
-        	$('#hall').qtip({ content: 'CS 3230 HW' });
-        	$('#ui-design-pt3').qtip({ content: 'UI Design Pt. 3<br>Due: April 4, 2014<br>Progress: 75%' });
-        	$('#uidesign').qtip({ content: 'UI Design<br>MWF 9:00am' });
-        	$('#conducting').qtip({ content: 'Conducting' });
-        	$('#weaving').qtip({ content: 'Underwater Basketweaving' });
-        	$('#drownproofing').qtip({ content: 'Drownproofing' });
-        	$('#scaling').qtip({ content: 'Scaling Urban Structures' });
-        	$('#new-task').qtip({ content: 'Conducting take-home exam<br>Due: Tomorrow<br>Progress: 0%' });
+			$('#pyramid').attr("title", 'Finals' );
+        	$('.floppydisk').attr("title", 'Save' );
+        	$('#edit-task').attr("title", 'Edit' );
+        	$('#checkmark3').attr("title", 'OK' );
+        	$('.bulldozer').attr("title","Remove");
+        	$('#hall').attr("title", 'CS 3230 HW' );
+        	$('#ui-design-pt3').attr("title", 'UI Design Pt. 3<br>Due: April 4, 2014<br>Progress: 75%' );
+        	$('#uidesign').attr("title", 'UI Design<br>MWF 9:00am' );
+        	$('#conducting').attr("title", 'Conducting' );
+        	$('#weaving').attr("title", 'Underwater Basketweaving' );
+        	$('#drownproofing').attr("title", 'Drownproofing' );
+        	$('#scaling').attr("title", 'Scaling Urban Structures' );
         	
-        	$('.checkmark').qtip({ content: 'Completed?' });
-        	$('.x').qtip({ content: 'Not completed?' });
-        	$('#checkmark').qtip({ content: "Click if all of today's tasks were completed" });
-        	$('#x').qtip({ content: "Click if none of today's tasks were completed" });
-         	
-         	
+        	$('.checkmark').attr("title","Completed?");
+        	$('.x').attr("title","Not completed?");
+        	$('#checkmark').attr("title", "Click if all of today's tasks were completed" );
+        	$('#x').attr("title", "Click if none of today's tasks were completed" );
+        	
+        	$('#new-task').attr('title', 'Conducting take-home exam<br>Due: Tomorrow<br>Progress: 0%' );
+        	$('.next-arrow').attr("title", 'Next' );
+        	$('.prev-arrow').attr("title", 'Previous' );
+
          	$('#hammer').hover(function(){this.src='images/hammer-h.png';}, function(){this.src="images/hammer.png";});
          	$('#scroll').hover(function(){this.src='images/scroll-h.png';}, function(){this.src="images/scroll.png";});
          	$('#calendar').hover(function(){this.src='images/calendar-h.png';}, function(){this.src="images/calendar.png";});
@@ -56,6 +53,10 @@
 
          
         jQuery(function ($) {
+        	$("[title]").each(function(){
+    			$(this).tooltip({ content: $(this).attr("title")});
+			});    // It allows html content to tooltip.
+        
 			// Load dialog on click
 			$('#ui-design-pt3').click(function (e) {
 				$('#ui-design-pt3-modal-content').modal();
@@ -147,7 +148,7 @@
 			</table>
 			
 			<div class="modal-arrows">
-				<p><button style="float: left; display: block; vertical-align: middle; padding-right: 10px;">Cancel</button><span style="padding-right: 10px; color: #666;">&#10094;</span><a id="add1-next" href="#">&#10095;</a></p>
+				<p><button style="float: left; margin-top: 8px; margin-right: 10px;" class="simplemodal-close">Cancel</button><span style="padding-right: 10px; color: #666;">&#10094;</span><a id="add1-next" class="next-arrow" href="#">&#10095;</a></p>
 			</div>
 		</div>
 		
@@ -170,7 +171,7 @@
 			</table>
 			
 			<div class="modal-arrows">
-				<p><button style="float: left; display: block; vertical-align: middle; padding-right: 10px;">Cancel</button><a id="add2-prev" href="#" style="padding-right: 10px;">&#10094;</a><a id="add2-next" href="#">&#10095;</a></p>
+				<p><button style="float: left; margin-top: 8px; margin-right: 10px;" class="simplemodal-close">Cancel</button><a id="add2-prev" href="#" class="prev-arrow" style="padding-right: 10px;">&#10094;</a><a id="add2-next" class="next-arrow" href="#">&#10095;</a></p>
 			</div>
 		</div>
 		
@@ -185,7 +186,7 @@
 			</table>
 			
 			<div class="modal-arrows">
-				<p><button style="float: left; display: block; vertical-align: middle; padding-right: 10px;">Cancel</button><a id="add3-prev" style="padding-right: 10px;" href="#">&#10094;</a><span style="color: #666;">&#10095;</span></p>
+				<p><button style="float: left; margin-top: 8px; margin-right: 10px;" class="simplemodal-close">Cancel</button><a id="add3-prev" class="prev-arrow" style="padding-right: 10px;" href="#">&#10094;</a><span style="color: #666;">&#10095;</span></p>
 			</div>
 		</div>
 		
@@ -215,7 +216,7 @@ onmouseout="this.src='images/bulldozer.png'" />
 			<h2>Task Details</h2>
 			<table style="margin: auto;">
 				<tr><td><h3>Name:</h3></td><td><p><input type="text" value="UI Design Pt. 3"></p></td></tr>
-				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="04/04/2014 23:55" id="datepicker"></p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="04/04/2014 23:55" class="datepicker"></p></td></tr>
 				<tr><td><h3>Estimated Time:</h3></td><td><p><input id="timespinner" value="6.0"> hours</p></td></tr>
 				<tr><td><h3>Priority:</h3></td><td><p><select>
 <option value="high" selected>High</option>
@@ -231,7 +232,7 @@ Work on paper
 				
 			</table>
 				<div class="modal-actions">
-    			<img class="simplemodal-close" class="floppydisk" src="images/floppy-disk-icon.png" onmouseover="this.src='images/floppy-disk-icon-h.png'"
+    			<img class="simplemodal-close floppydisk" src="images/floppy-disk-icon.png" onmouseover="this.src='images/floppy-disk-icon-h.png'"
 onmouseout="this.src='images/floppy-disk-icon.png'" />
     			<img class="bulldozer" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
 onmouseout="this.src='images/bulldozer.png'" />
@@ -251,7 +252,7 @@ onmouseout="this.src='images/bulldozer.png'" />
 				<tr><td><h3>Notes:</h3></td><td><p></p></td></tr>	
 				
 			</table>
-				<div class="modal-actions"><img id="edit-new-task" src="images/pencil.png" onmouseover="this.src='images/pencil-h.png'"
+				<div class="modal-actions"><img id="edit-new-task" title="Edit" src="images/pencil.png" onmouseover="this.src='images/pencil-h.png'"
 onmouseout="this.src='images/pencil.png'" "/>
     			<img class="bulldozer" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
 onmouseout="this.src='images/bulldozer.png'" />
@@ -276,7 +277,7 @@ onmouseout="this.src='images/bulldozer.png'" />
 				
 			</table>
 				<div class="modal-actions">
-    			<img class="simplemodal-close" class="floppydisk" src="images/floppy-disk-icon.png" onmouseover="this.src='images/floppy-disk-icon-h.png'"
+    			<img class="simplemodal-close floppydisk" src="images/floppy-disk-icon.png" onmouseover="this.src='images/floppy-disk-icon-h.png'"
 onmouseout="this.src='images/floppy-disk-icon.png'" />
     			<img class="bulldozer" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
 onmouseout="this.src='images/bulldozer.png'" />
@@ -317,9 +318,9 @@ onmouseout="this.src='images/ui-house.png'"/></a>
     		
     		</div> <!--structures-->
     		<div id="actions">
-    			<a href="#"><img id="hammer" src="images/hammer.png" /></a>
-    			<img id="scroll" src="images/scroll.png" />
-    			<img id="calendar" src="images/calendar.png" />
+    			<a href="#"><img id="hammer" title="Add" src="images/hammer.png" /></a>
+    			<a href="#"><img id="scroll" title="View Tasks" src="images/scroll.png" /></a>
+    			<a href="#"><img id="calendar" title="View Calendar" src="images/calendar.png" /></a>
     		</div> <!--actions-->
     		<div id="footer">
     		<p><span style="float:left; padding-left:5px;">11:47 AM</span><span style="float:right; padding-right:5px;">850 Blokes</span></p>

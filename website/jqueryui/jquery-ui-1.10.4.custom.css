@@ -773,8 +773,8 @@ button.ui-button::-moz-focus-inner {
 	position: absolute;
 	z-index: 9999;
 	max-width: 300px;
-	-webkit-box-shadow: 0 0 5px #aaa;
-	box-shadow: 0 0 5px #aaa;
+	-webkit-box-shadow: 0 0 5px #0cf; /*<-----change shadow color here*/
+	box-shadow: 0 0 5px #0cf;
 }
 body .ui-tooltip {
 	border-width: 2px;
@@ -797,7 +797,7 @@ body .ui-tooltip {
 	font-size: 1em;
 }
 .ui-widget-content {
-	border: 1px solid #aaaaaa;
+	border: 1px solid #0cf;  /*<-----change border color here*/
 	background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
 	color: #222222;
 }
