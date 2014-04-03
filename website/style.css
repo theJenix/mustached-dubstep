@@ -22,8 +22,8 @@ p {
 	margin: 0;
 	padding: 0;
 	/*border: 0;*/
-	width: 100px;
-	height: 300px;
+	width: 90px;
+	height: 250px;
 	background-color: rgba(255, 255, 255, .6);
 	position:relative;
 	left:0px;
@@ -79,7 +79,7 @@ p {
 	padding: 0;
 	border: 0;
 	width: 300px;
-	height: 229px;
+	height: 239px;
 	background-color: white;
 	position:absolute;
 	overflow-y: scroll;
@@ -92,11 +92,12 @@ p {
 	padding: 0;
 	border: 0;
 	width: 300px;
-	height: 50px;
+	height: 40px;
 	background-color: white;
 	position:absolute;
 	left:0px;
-	top:250px;
+	top:260px;
+	border-bottom: 2px ridge #FFD700;
 }
 
 #tomorrow-hdr {
@@ -112,24 +113,22 @@ p {
 
 #tomorrow {
 	margin: 5px;
-	border: 0;
 	width: 300px;
 	height: 130px;
 	position:absolute;
 	left:0px;
 	top:320px;
 	text-align: left;
+	
 }
 
 #milestones-hdr {
-	margin: 5px;
-	border: 0;
 	width: 300px;
 	height: 20px;
 	position:absolute;
 	left:0px;
 	top:450px;
-	/*border-top: 2px inset #FFD700;*/
+	border-top: 2px ridge #FFD700;
 
 }
 
@@ -177,6 +176,11 @@ img {
 #milestones td {
 	padding: 0;
 	margin-bottom: 1px;
+}
+
+#milestones a {
+	text-decoration: none;
+	color: blue;
 }
 
 h4 {
@@ -239,11 +243,9 @@ h4 {
 #simplemodal-overlay {background-color:#555;}
 
 /* Container */
-#simplemodal-container {height:400px; width:400px; color:#333; background: url("images/blueprint.jpg"); padding:0px; -moz-border-radius-bottomleft:6px; -webkit-border-bottom-left-radius:6px; -moz-border-radius-bottomright:6px; -webkit-border-bottom-right-radius:6px; border-radius:6px 6px 6px 6px; -moz-box-shadow:0 0 64px #000; -webkit-box-shadow:0 0 64px #000; box-shadow:0 0 64px #000; position: relative;}
+#simplemodal-container {height:400px; width:600px; color:#333; background: url("images/blueprint.jpg"); padding:0px; -moz-border-radius-bottomleft:6px; -webkit-border-bottom-left-radius:6px; -moz-border-radius-bottomright:6px; -webkit-border-bottom-right-radius:6px; border-radius:6px 6px 6px 6px; -moz-box-shadow:0 0 64px #000; -webkit-box-shadow:0 0 64px #000; box-shadow:0 0 64px #000; position: relative;}
 #simplemodal-container .simplemodal-data {padding:8px;}
 #simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
-#simplemodal-container a {color:#ddd;}
-
 
 
 .mymodal h2 {
@@ -267,13 +269,46 @@ h4 {
 	text-align: left;
 }
 
+.mymodal a {
+	text-decoration: none;
+	color: black;
+}
+
 .mymodal td{
 	vertical-align: top;
 	padding: 5px;
 }
-.mymodal img{
+.modal-actions img{
 	height: 45px;
 	margin: 10px;
+}
+.modal-options img {
+	height: 75px;
+}
+
+.modal-arrows{
+	display: block;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	font-size: 2em;
+}
+
+.blok {
+	float: left;
+	height: 200px;
+}
+
+.closeIcon{
+	background-image: url("images/close_icon.png");
+	display: inline;
+	width:25px; 
+	height:25px; 
+	z-index:3200; 
+	position:absolute; 
+	top:-5px; 
+	right:-5px; 
+	cursor:pointer;
 }
 
 .modal-actions {
@@ -283,9 +318,29 @@ h4 {
 	left: 0;
 }
 
-qtip {
-	position: {
-             		target: 'mouse', // Track the mouse as the positioning target
-             		adjust: { x: 10, y: 10 } // Offset it slightly from under the mouse
-         		}
+#actions img {
+	width: 70px;
+	margin: 5px;
 }
+
+.check-or-x {
+	float: right;
+	padding-right: 8px;
+}
+
+div.ui-datepicker{
+ font-size:10px;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
