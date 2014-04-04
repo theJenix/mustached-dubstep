@@ -37,17 +37,21 @@
         	
         	$('.next-arrow').attr("title", 'Next' );
         	$('.prev-arrow').attr("title", 'Previous' );
+        	
+        	$('#finish-setup').attr("title", '');
          	
          	
          	$('#hammer').hover(function(){this.src='images/hammer-h.png';}, function(){this.src="images/hammer.png";});
          	$('#scroll').hover(function(){this.src='images/scroll-h.png';}, function(){this.src="images/scroll.png";});
          	$('#calendar').hover(function(){this.src='images/calendar-h.png';}, function(){this.src="images/calendar.png";});
+         	$('#settings').hover(function(){this.src='images/gear-h.png';}, function(){this.src="images/gear.png";});
          	$('.x').hover(function(){this.src='images/x-h.png';}, function(){this.src="images/x.png";});
          	$('.checkmark').hover(function(){this.src='images/checkmark-h.png';}, function(){this.src="images/checkmark.png";});
          	
          	$('#pt3-link').hover(function(){ document.getElementById("ui-design-pt3").src='images/ui-house-h.png';}, function(){document.getElementById("ui-design-pt3").src='images/ui-house.png';});
          	$('#3230hw-link').hover(function(){ document.getElementById("hall").src='images/hall-h.png';}, function(){document.getElementById("hall").src='images/hall.png';});
          	$('#finals-link').hover(function(){ document.getElementById("pyramid").src='images/pyramid-h.png';}, function(){document.getElementById("pyramid").src='images/pyramid.png';});
+         	$('#settings-link').hover(function(){ document.getElementById("settings").src='images/gear-h.png';}, function(){document.getElementById("settings").src='images/gear.png';});
          });
 
          
@@ -58,25 +62,25 @@
 			});    // It allows html content to tooltip.
 			
 			// Load dialog on click
-			$('#setup1').modal();
+			$('#setup1').modal({focus:false});
 			$('#setup1-next').click(function (e) {
 				$.modal.close();
-				$('#setup2').modal();
+				$('#setup2').modal({focus:false});
 				return false;
 			});
 			$('#setup2-next').click(function (e) {
 				$.modal.close();
-				$('#setup3').modal();
+				$('#setup3').modal({focus:false});
 				return false;
 			});
 			$('#setup2-prev').click(function (e) {
 				$.modal.close();
-				$('#setup1').modal();
+				$('#setup1').modal({focus:false});
 				return false;
 			});
 			$('#setup3-prev').click(function (e) {
 				$.modal.close();
-				$('#setup2').modal();
+				$('#setup2').modal({focus:false});
 				return false;
 			});
 			$('#ui-design-pt3').click(function (e) {
@@ -153,8 +157,11 @@
 				<tr><td><h3 style="text-align: left;">Welcome to Priori City, where tasks and events that you complete help build our city and attract residents! I am Virgil, your advisor. I am eager to get started, but first I need some information. Let's begin!</h3></td></tr>	
 			</table>
 			
-			<div class="modal-arrows">
-				<p><span style="padding-right: 10px; color: #666;">&#10094;</span><a id="setup1-next" class="next-arrow" href="#">&#10095;</a></p>
+			<div class="buttons">
+				<div class="modal-arrows">
+					<button class="prev-arrow" disabled>&#10094;</button>
+					<button id="setup1-next" class="next-arrow">&#10095;</button>
+				</div>
 			</div>
 		</div>
 		
@@ -163,13 +170,16 @@
 			<img class="blok" src="images/transparentVirgil.png" />
 			<table style="margin: auto; text-align: left;">
 				<tr><td colspan="2"><h3 style="text-align: left;">Here you can customize your settings...</h3></td></tr>
-				<tr><td width="200px"><h3 style="text-align: left;">When do you start your day?</h3></td><td><p><input type="text" class="timepicker"></p></td></tr>
+				<tr><td width="210px"><h3 style="text-align: left;">When do you start your day?</h3></td><td><p><input type="text" class="timepicker"></p></td></tr>
 				<tr><td><h3 style="text-align: left;">When do you end your day?</h3></td><td><p><input type="text" class="timepicker" ></p></td></tr>
 				<tr><td><h3 style="text-align: left;">How long do you want to work on one project at a time?</h3></td><td><p><input class="timespinner" value="2.0"> hours</p></td></tr>
 			</table>
 			
-			<div class="modal-arrows">
-				<p><a id="setup2-prev" class="prev-arrow" href="#" style="padding-right: 10px;">&#10094;</a><a id="setup2-next" class="next-arrow" href="#">&#10095;</a></p>
+			<div class="buttons">
+				<div class="modal-arrows">
+					<button id="setup2-prev" class="prev-arrow">&#10094;</button>
+					<button id="setup2-next" class="next-arrow">&#10095;</button>
+				</div>
 			</div>
 		</div>
 		
@@ -180,12 +190,14 @@
 				<tr><td><h3 style="text-align: left;">Here's what will happen...</h3></td></tr>
 				<tr><td width="200px"><h3 style="text-align: left;">I will schedule tasks for you between the hours of 8:00 and 18:00.</h3></td></tr>
 				<tr><td><h3 style="text-align: left;">Your tasks will be broken up into work periods of 2 hours at a time.</td></tr>
-				<tr><td><h3 style="text-align: left;">You can always view and change these preferences by going to <a href="#">Settings</a>.</td></tr>
-				<tr><td><button id="finish-setup" onclick="$.modal.close(); window.location.href = 'index.html';">Take me to Priori City!</button></td></tr>
+				<tr><td><h3 style="text-align: left;">You can always view and change these preferences by going to <a href="#" id="settings-link">Settings</a>.</td></tr>
 			</table>
 			
-			<div class="modal-arrows">
-				<p><a id="setup3-prev" class="prev-arrow" style="padding-right: 10px;" href="#">&#10094;</a><span style="color: #666;">&#10095;</span></p>
+			<div class="buttons">
+				<div class="modal-arrows">
+					<button id="setup3-prev" class="prev-arrow">&#10094;</button>
+					<button id="finish-setup" class="next-arrow" onclick="$.modal.close(); window.location.href = 'index.html';">Take me to Priori City!</button>
+				</div>
 			</div>
 		</div>
 		
@@ -195,39 +207,16 @@
     <div id="main">
     	<div id="city">
     		<div id="structures">
-    			<img id="pyramid" src="images/pyramid.png" style="top: 37px; left: 100px;" onmouseover="this.src='images/pyramid-h.png'"
-onmouseout="this.src='images/pyramid.png'" />
-    			<img id="hall" src="images/hall.png" style="top: 319px; left: 215px;" 
-    			onmouseover="this.src='images/hall-h.png'"
-onmouseout="this.src='images/hall.png'"/>
-    			<a href="#"><img id="ui-design-pt3" src="images/ui-house.png" style="top: 409px; left: 342px;" 
-    			onmouseover="this.src='images/ui-house-h.png'"
-onmouseout="this.src='images/ui-house.png'"/></a>
-
-				<img id="uidesign" src="images/uidesign.png" style="top: 394px; left: 322px;" 
-    			onmouseover="this.src='images/uidesign-h.png'"
-onmouseout="this.src='images/uidesign.png'"/>
-				<img id="conducting" src="images/conducting.png" style="top: 291px; left: 347px;" 
-    			onmouseover="this.src='images/conducting-h.png'"
-onmouseout="this.src='images/conducting.png'"/>
-				<img id="weaving" src="images/weaving.png" style="top: 431px; left: 425px;" 
-    			onmouseover="this.src='images/weaving-h.png'"
-onmouseout="this.src='images/weaving.png'"/>
-				<img id="drownproofing" src="images/drownproofing.png" style="top: 473px; left: 182px;" 
-    			onmouseover="this.src='images/drownproofing-h.png'"
-onmouseout="this.src='images/drownproofing.png'"/>
-				<img id="scaling" src="images/scaling.png" style="top: 28px; left: 448px;" 
-    			onmouseover="this.src='images/scaling-h.png'"
-onmouseout="this.src='images/scaling.png'"/>
     		
     		</div> <!--structures-->
     		<div id="actions">
     			<a href="#"><img id="hammer" src="images/hammer.png" /></a>
     			<img id="scroll" src="images/scroll.png" />
     			<img id="calendar" src="images/calendar.png" />
+    			<img id="settings" src="images/gear.png" />
     		</div> <!--actions-->
     		<div id="footer">
-    		<p><span style="float:left; padding-left:5px;">11:47 AM</span><span style="float:right; padding-right:5px;">850 Blokes</span></p>
+    		<p><span style="float:left; padding-left:5px;">11:47 AM</span><span style="float:right; padding-right:5px;">0 Blokes</span></p>
     		</div> <!--footer-->
     	</div> <!--city-->
     	<div id="side">
@@ -238,12 +227,12 @@ onmouseout="this.src='images/scaling.png'"/>
     			<ul>
     				<li>&nbsp;&nbsp;8:00 AM - </li>
     				<li>&nbsp;&nbsp;9:00 AM - </li>
-    				<li><strike>10:00 AM - CS 3750</strike><span class="check-or-x"><img style="padding-right: 15px;" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></span></li>
-    				<li style="background-color: rgba(0, 204, 255, .2);">11:00 AM - CS 3230 HW<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
-    				<li>12:00 PM - CS 3230 HW<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
+    				<li>10:00 AM - </li>
+    				<li style="background-color: rgba(0, 204, 255, .2);">11:00 AM - </li>
+    				<li>12:00 PM - </li>
     				<li>&nbsp;&nbsp;1:00 PM - </li>
-    				<li>&nbsp;&nbsp;2:00 PM - Underwater Basketweaving<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
-    				<li>&nbsp;&nbsp;3:00 PM - Drownproofing<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
+    				<li>&nbsp;&nbsp;2:00 PM - </li>
+    				<li>&nbsp;&nbsp;3:00 PM - </li>
     				<li>&nbsp;&nbsp;4:00 PM - </li>
     				<li>&nbsp;&nbsp;5:00 PM - </li>
     				<li>&nbsp;&nbsp;6:00 PM - </li>
@@ -265,9 +254,6 @@ onmouseout="this.src='images/scaling.png'"/>
     		
     		<div id="tomorrow">
     			<p>
-    				- UI Design Pt. 3 <br>
-					- MGMT 2000 Conducting <br>
-					- Scaling Urban Structures
     			</p>
     		</div> <!--tomorrow-->
     		
@@ -276,13 +262,6 @@ onmouseout="this.src='images/scaling.png'"/>
     		</div> <!--milestones-hdr-->
     		
     		<div id="milestones">
-    			<table style="width: 100%;">
-    				<tr><td><p>House for <a href="#" id="pt3-link">UI Design Pt. 3</a></p></td>
-    					<td><img src="images/progressbar2.jpg"/></td></tr>
-    				<tr><td><p>Hall of <a href="#" id="3230hw-link">CS 3230 HW</a></p></span></td>
-    					<td><img src="images/progressbar1.jpg"/></td></tr>
-    				<tr><td><p>Pyramid of <a href="#" id="finals-link">Finals</a></p></td>
-    					<td><img src="images/progressbar3.jpg"/></td></tr>
     		</div> <!--milestones-->
     	</div> <!--side-->
     </div> <!--main-->

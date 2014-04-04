@@ -38,10 +38,13 @@
         	$('#new-task').attr('title', 'Conducting take-home exam<br>Due: Tomorrow<br>Progress: 0%' );
         	$('.next-arrow').attr("title", 'Next' );
         	$('.prev-arrow').attr("title", 'Previous' );
+        	
+        	$('#finish').attr("title", '' );
 
          	$('#hammer').hover(function(){this.src='images/hammer-h.png';}, function(){this.src="images/hammer.png";});
          	$('#scroll').hover(function(){this.src='images/scroll-h.png';}, function(){this.src="images/scroll.png";});
          	$('#calendar').hover(function(){this.src='images/calendar-h.png';}, function(){this.src="images/calendar.png";});
+         	$('#settings').hover(function(){this.src='images/gear-h.png';}, function(){this.src="images/gear.png";});
          	$('.x').hover(function(){this.src='images/x-h.png';}, function(){this.src="images/x.png";});
          	$('.checkmark').hover(function(){this.src='images/checkmark-h.png';}, function(){this.src="images/checkmark.png";});
          	
@@ -148,8 +151,12 @@
 <input type="radio" name="type" value="event">Event</td></tr>	
 			</table>
 			
-			<div class="modal-arrows">
-				<p><button style="float: left; margin-top: 8px; margin-right: 10px;" class="simplemodal-close">Cancel</button><span style="padding-right: 10px; color: #666;">&#10094;</span><a id="add1-next" class="next-arrow" href="#">&#10095;</a></p>
+			<div class="buttons">
+				<button class="simplemodal-close cancel">Cancel</button>
+				<div class="modal-arrows">
+					<button class="prev-arrow" disabled>&#10094;</button>
+					<button id="add1-next" class="next-arrow">&#10095;</button>
+				</div>
 			</div>
 		</div>
 		
@@ -171,8 +178,12 @@
 				<tr><td><h3>Notes:</h3></td><td><p><textarea rows="5" cols="20"> </textarea></p></td></tr>	
 			</table>
 			
-			<div class="modal-arrows">
-				<p><button style="float: left; margin-top: 8px; margin-right: 10px;" class="simplemodal-close">Cancel</button><a id="add2-prev" href="#" class="prev-arrow" style="padding-right: 10px;">&#10094;</a><a id="add2-next" class="next-arrow" href="#">&#10095;</a></p>
+			<div class="buttons">
+				<button class="simplemodal-close cancel">Cancel</button>
+				<div class="modal-arrows">
+					<button id="add2-prev" class="prev-arrow">&#10094;</button>
+					<button id="add2-next" class="next-arrow">&#10095;</button>
+				</div>
 			</div>
 		</div>
 		
@@ -182,12 +193,15 @@
 			<img class="blok" src="images/transparentBlok.png" />
 			<table style="margin: auto;">
 				<tr><td><h3 style="text-align: left;">According to those specifications, here are some options of what you can build!</h3></td></tr>
-				<tr><td><div class="modal-options"><input name="type" type="radio" value="house" checked><img src="images/house-option.png" /><input name="type" type="radio" value="house"><img src="images/house-option.png" /><input name="type" type="radio" value="house"><img src="images/house-option.png" /></div></td></tr>
-				<tr><td><a href="index2.html"><button class="simplemodal-close" id="finish">Finish!</button></a></td></tr>	
+				<tr><td><div class="modal-options"><input name="type" type="radio" value="house" checked><img src="images/house-option.png" /><input name="type" type="radio" value="house"><img src="images/house-option.png" /><input name="type" type="radio" value="house"><img src="images/house-option.png" /></div></td></tr>	
 			</table>
 			
-			<div class="modal-arrows">
-				<p><button style="float: left; margin-top: 8px; margin-right: 10px;" class="simplemodal-close">Cancel</button><a id="add3-prev" class="prev-arrow" style="padding-right: 10px;" href="#">&#10094;</a><span style="color: #666;">&#10095;</span></p>
+			<div class="buttons">
+				<button class="simplemodal-close cancel">Cancel</button>
+				<div class="modal-arrows">
+					<button id="add3-prev" class="prev-arrow">&#10094;</button>
+					<button class="next-arrow simplemodal-close" id="finish">Finish!</button>
+				</div>
 			</div>
 		</div>
 		
@@ -197,7 +211,7 @@
 			<h2>Task Details</h2>
 			<table style="margin: auto;">
 				<tr><td><h3>Name:</h3></td><td><p>UI Design Pt. 3</p></td></tr>
-				<tr><td><h3>Deadline:</h3></td><td><p>11:55pm April 4, 2014</p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p>04/04/2014 23:55</p></td></tr>
 				<tr><td><h3>Estimated Time:</h3></td><td><p>6 hours</p></td></tr>
 				<tr><td><h3>Priority:</h3></td><td><p>High</p></td></tr>
 				<tr><td><h3>Progress:</h3></td><td><p>75%</p></td></tr>
@@ -218,13 +232,13 @@ onmouseout="this.src='images/bulldozer.png'" />
 			<table style="margin: auto;">
 				<tr><td><h3>Name:</h3></td><td><p><input type="text" value="UI Design Pt. 3"></p></td></tr>
 				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="04/04/2014 23:55" class="datepicker"></p></td></tr>
-				<tr><td><h3>Estimated Time:</h3></td><td><p><input id="timespinner" value="6.0"> hours</p></td></tr>
+				<tr><td><h3>Estimated Time:</h3></td><td><p><input class="timespinner" value="6.0"> hours</p></td></tr>
 				<tr><td><h3>Priority:</h3></td><td><p><select>
 <option value="high" selected>High</option>
 <option value="medium">Medium</option>
 <option value="low">Low</option>
 </select></p></td></tr>
-				<tr><td><h3>Progress:</h3></td><td><p><input id="progressspinner" value="75">%</p></td></tr>
+				<tr><td><h3>Progress:</h3></td><td><p><input class="progressspinner" value="75">%</p></td></tr>
 				<tr><td><h3>Notes:</h3></td><td><p><textarea rows="5" cols="20">
 Group meeting Wednesday
 Create images
@@ -321,7 +335,8 @@ onmouseout="this.src='images/ui-house.png'"/></a>
     		<div id="actions">
     			<a href="#"><img id="hammer" title="Add" src="images/hammer.png" /></a>
     			<a href="#"><img id="scroll" title="View Tasks" src="images/scroll.png" /></a>
-    			<a href="#"><img id="calendar" title="View Calendar" src="images/calendar.png" /></a>
+    			<a href="#"><img id="calendar" title="View Calendar" src="images/calendar.png" onclick="window.open('calendar2.html', '_blank');" /></a>
+    			<a href="#"><img id="settings" title="Settings" src="images/gear.png" /></a>
     		</div> <!--actions-->
     		<div id="footer">
     		<p><span style="float:left; padding-left:5px;">11:47 AM</span><span style="float:right; padding-right:5px;">850 Blokes</span></p>
@@ -335,7 +350,7 @@ onmouseout="this.src='images/ui-house.png'"/></a>
     			<ul>
     				<li>&nbsp;&nbsp;8:00 AM - </li>
     				<li>&nbsp;&nbsp;9:00 AM - </li>
-    				<li><strike>10:00 AM - CS 3750</strike><span class="check-or-x"><img style="padding-right: 15px;" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></span></li>
+    				<li><strike>10:00 AM - CS 3750</strike><span class="check-or-x"><img src="images/checkmark-h.png" height="15px" style=" margin: 0px;" /><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
     				<li style="background-color: rgba(0, 204, 255, .2);">11:00 AM - CS 3230 HW<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
     				<li>12:00 PM - CS 3230 HW<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
     				<li>&nbsp;&nbsp;1:00 PM - </li>

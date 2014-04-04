@@ -1,7 +1,7 @@
 body {
      margin: 0;
      padding: 0;
-     text-align: center;
+     text-align: left;
      font-family: 'Alegreya Sans', sans-serif;
 }
 
@@ -23,9 +23,9 @@ p {
 	margin: 0;
 	padding: 0;
 	/*border: 0;*/
-	width: 90px;
-	height: 250px;
-	background-color: rgba(255, 255, 255, .6);
+	width: 50px;
+	height: 215px;
+	background-color: rgba(255, 255, 255, .7);
 	position:relative;
 	left:0px;
 	top:0px;
@@ -74,6 +74,7 @@ p {
 	position:absolute;
 	left:0px;
 	top:0px;
+	text-align: center;
 	
 }
 #today {
@@ -99,6 +100,7 @@ p {
 	left:0px;
 	top:260px;
 	border-bottom: 2px ridge #FFD700;
+	text-align: center;
 }
 
 #tomorrow-hdr {
@@ -109,7 +111,7 @@ p {
 	position:absolute;
 	left:0px;
 	top:300px;
-	/*border-top: 2px inset #FFD700;*/
+	text-align: center;
 }
 
 #tomorrow {
@@ -130,6 +132,7 @@ p {
 	left:0px;
 	top:450px;
 	border-top: 2px ridge #FFD700;
+	text-align: center;
 
 }
 
@@ -287,12 +290,36 @@ h4 {
 	height: 75px;
 }
 
-.modal-arrows{
-	display: block;
+.buttons{
+	width: 100%;
 	position: absolute;
+	bottom: 0px;
+	left: 0;
+}
+
+.cancel {
+	position: absolute;
+	right: 264px;
 	bottom: 10px;
+	font-size: .9em; 
+	padding: 4px 8px;
+}
+
+.modal-arrows button {
+	font-size: 1em;
+	padding: 4px 16px;
+}
+
+.next-arrow {
+	position: absolute;
 	right: 10px;
-	font-size: 2em;
+	bottom: 10px;
+}
+
+.prev-arrow {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
 }
 
 .blok {
@@ -317,10 +344,11 @@ h4 {
 	position: absolute;
 	bottom: 10px;
 	left: 0;
+	text-align: center;
 }
 
 #actions img {
-	width: 70px;
+	width: 40px;
 	margin: 5px;
 }
 
