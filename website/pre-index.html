@@ -8,11 +8,10 @@
 
 	<script src="jquery-1.11.0.js"></script>
 	<script src="jqueryui/jquery-ui-1.10.4.js"></script>
-	<script src="jquery-ui-timepicker-addon.js"></script>
-	<!--<script src="ui.timepickr.js"></script>-->
+	<script src="jquery.ui.timepicker.js"></script>
     <script src="jquery.simplemodal-1.4.4.js"></script>
 	<link href="jqueryui/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css" />
-	<!--<link href="ui.timepickr.css" rel="stylesheet" type="text/css" />-->
+	<link href="jquery.ui.timepicker.css" rel="stylesheet" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans' rel='stylesheet' type='text/css'>
 
 	<script type="text/javascript">
@@ -128,8 +127,10 @@
 			});
 			
 			$(function() {
-    			$( ".datepicker" ).datetimepicker();
-    			$( ".timepicker" ).timepicker();
+    			$( ".timepicker" ).timepicker({
+    				showPeriod: true,
+    				showLeadingZero: true
+				});
     			$( ".timespinner" ).spinner({
     				min: 0,
       				step: 0.5,
@@ -172,8 +173,8 @@
 			<img class="blok" src="images/transparentVirgil.png" />
 			<table style="margin: auto; text-align: left;">
 				<tr><td colspan="2"><h3 style="text-align: left;">Here you can customize your settings...</h3></td></tr>
-				<tr><td width="210px"><h3 style="text-align: left;">When do you start your day?</h3></td><td><p><input type="text" class="timepicker"></p></td></tr>
-				<tr><td><h3 style="text-align: left;">When do you end your day?</h3></td><td><p><input type="text" class="timepicker" ></p></td></tr>
+				<tr><td width="210px"><h3 style="text-align: left;">When do you start your day?</h3></td><td><p><input type="text" class="timepicker" value="7:30 AM"></p></td></tr>
+				<tr><td><h3 style="text-align: left;">When do you end your day?</h3></td><td><p><input type="text" class="timepicker" value="5:00 PM"></p></td></tr>
 				<tr><td><h3 style="text-align: left;">How long do you want to work on one project at a time?</h3></td><td><p><input class="timespinner" value="2.0"> hours</p></td></tr>
 			</table>
 			
@@ -190,7 +191,7 @@
 			<img class="blok" src="images/transparentVirgil.png" />
 			<table style="margin: auto; text-align: left;">
 				<tr><td><h3 style="text-align: left;">Here's what will happen...</h3></td></tr>
-				<tr><td width="200px"><h3 style="text-align: left;">I will schedule tasks for you between the hours of 8:00 and 18:00.</h3></td></tr>
+				<tr><td width="200px"><h3 style="text-align: left;">I will schedule tasks for you between the hours of 8:00 AM and 6:00 PM.</h3></td></tr>
 				<tr><td><h3 style="text-align: left;">Your tasks will be broken up into work periods of 2 hours at a time.</td></tr>
 				<tr><td><h3 style="text-align: left;">You can always view and change these preferences by going to <a href="#" id="settings-link">Settings</a>.</td></tr>
 			</table>

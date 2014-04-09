@@ -8,9 +8,10 @@
 
 	<script src="jquery-1.11.0.js"></script>
 	<script src="jqueryui/jquery-ui-1.10.4.js"></script>
-	<script src="jquery-ui-timepicker-addon.js"></script>
+	<script src="jquery.ui.timepicker.js"></script>
     <script src="jquery.simplemodal-1.4.4.js"></script>
 	<link href="jqueryui/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css" />
+	<link href="jquery.ui.timepicker.css" rel="stylesheet" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans' rel='stylesheet' type='text/css'>
 
 	<script type="text/javascript">
@@ -118,7 +119,11 @@
 			});
 			
 			$(function() {
-    			$( ".datepicker" ).datetimepicker();
+    			$( ".datepicker" ).datepicker();
+    			$( ".timepicker" ).timepicker({
+    				showPeriod: true,
+    				showLeadingZero: true
+				});
     			$( ".timespinner" ).spinner({
     				min: 0,
       				step: 0.5,
@@ -167,7 +172,7 @@
 			<table style="margin: auto; text-align: left;">
 				<tr><td colspan="2"><h3 style="text-align: left;">Tasks help build our city! What's the plan?</h3></td></tr>
 				<tr><td><h3>Name:</h3></td><td><p><input type="text"></p></td></tr>
-				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" class="datepicker" ></p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" class="datepicker" value="date" ></p><input type="text" class="timepicker" value="time"></p></td></tr>
 				<tr><td><h3>Estimated Time:</h3></td><td><p><input class="timespinner" value="2.0"> hours</p></td></tr>
 				<tr><td><h3>Priority:</h3></td><td><p><select>
 <option value="high" selected>High</option>
@@ -211,7 +216,7 @@
 			<h2>Task Details</h2>
 			<table style="margin: auto;">
 				<tr><td><h3>Name:</h3></td><td><p>UI Design Pt. 3</p></td></tr>
-				<tr><td><h3>Deadline:</h3></td><td><p>04/04/2014 23:55</p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p>04/04/2014 11:55 PM</p></td></tr>
 				<tr><td><h3>Estimated Time:</h3></td><td><p>6 hours</p></td></tr>
 				<tr><td><h3>Priority:</h3></td><td><p>High</p></td></tr>
 				<tr><td><h3>Progress:</h3></td><td><p>75%</p></td></tr>
@@ -231,7 +236,7 @@ onmouseout="this.src='images/bulldozer.png'" />
 			<h2>Task Details</h2>
 			<table style="margin: auto;">
 				<tr><td><h3>Name:</h3></td><td><p><input type="text" value="UI Design Pt. 3"></p></td></tr>
-				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="04/04/2014 23:55" class="datepicker"></p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="04/04/2014" class="datepicker"><input type="text" value="11:55 PM" class="timepicker"></p></td></tr>
 				<tr><td><h3>Estimated Time:</h3></td><td><p><input class="timespinner" value="6.0"> hours</p></td></tr>
 				<tr><td><h3>Priority:</h3></td><td><p><select>
 <option value="high" selected>High</option>
@@ -260,7 +265,7 @@ onmouseout="this.src='images/bulldozer.png'" />
 			<h2>Task Details</h2>
 			<table style="margin: auto;">
 				<tr><td><h3>Name:</h3></td><td><p>Conducting take-home exam</p></td></tr>
-				<tr><td><h3>Deadline:</h3></td><td><p>04/02/2014 12:05</p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p>04/02/2014 12:05 PM</p></td></tr>
 				<tr><td><h3>Estimated Time:</h3></td><td><p>2 hours</p></td></tr>
 				<tr><td><h3>Priority:</h3></td><td><p>Medium</p></td></tr>
 				<tr><td><h3>Progress:</h3></td><td><p>0%</p></td></tr>
@@ -279,7 +284,7 @@ onmouseout="this.src='images/bulldozer.png'" />
 			<h2>Task Details</h2>
 			<table style="margin: auto;">
 				<tr><td><h3>Name:</h3></td><td><p><input type="text" value="Conducting take-home exam"></p></td></tr>
-				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="04/02/2014 12:05" class="datepicker"></p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="04/02/2014" class="datepicker"><input type="text" value="12:05 PM" class="timepicker"></p></td></tr>
 				<tr><td><h3>Estimated Time:</h3></td><td><p><input class="timespinner" value="2.0"> hours</p></td></tr>
 				<tr><td><h3>Priority:</h3></td><td><p><select>
 <option value="high">High</option>
