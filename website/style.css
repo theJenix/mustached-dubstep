@@ -1,0 +1,375 @@
+body {
+     margin: 0;
+     padding: 0;
+     text-align: left;
+     font-family: 'Alegreya Sans', sans-serif;
+}
+
+p {
+	margin: 0;
+	
+}
+
+#main {
+	padding: 0;
+	width: 900px;
+	height: 600px;
+	margin: 0 auto;
+	border: 2px ridge #FFD700;
+
+}
+
+#actions {
+	margin: 0;
+	padding: 0;
+	/*border: 0;*/
+	width: 50px;
+	height: 215px;
+	background-color: rgba(255, 255, 255, .7);
+	position:relative;
+	left:0px;
+	top:0px;
+	border: 2px ridge #FFD700;
+}
+
+#city {
+	margin: 0;
+	padding: 0;
+	/*border: 0;*/
+	width: 600px;
+	height: 600px;
+	background-image: url("images/city.jpg");
+	position:relative;
+	left:0px;
+	top:0px;
+}
+
+#footer {
+	margin: 0;
+	padding: 0;
+	/*border: 0;*/
+	width: 600px;
+	height: 20px;
+	background-color: white;
+	position:absolute;
+	left:0px;
+	top:580px;
+}
+
+#side {
+	padding: 0;
+	border: 0;
+	width: 300px;
+	height: 600px;
+	position:relative;
+	left:600px;
+	top:-600px;
+}
+
+#today-hdr {
+	width: 300px;
+	height: 20px;
+	background-color: white;
+	padding: 0;
+	position:absolute;
+	left:0px;
+	top:0px;
+	text-align: center;
+	
+}
+#today {
+	padding: 0;
+	border: 0;
+	width: 300px;
+	height: 239px;
+	background-color: white;
+	position:absolute;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	left:0px;
+	top:21px;
+}
+
+#edit {
+	padding: 0;
+	border: 0;
+	width: 300px;
+	height: 40px;
+	background-color: white;
+	position:absolute;
+	left:0px;
+	top:260px;
+	border-bottom: 2px ridge #FFD700;
+	text-align: center;
+}
+
+#tomorrow-hdr {
+	margin: 5px;
+	border: 0;
+	width: 300px;
+	height: 20px;
+	position:absolute;
+	left:0px;
+	top:300px;
+	text-align: center;
+}
+
+#tomorrow {
+	margin: 5px;
+	width: 300px;
+	height: 130px;
+	position:absolute;
+	left:0px;
+	top:320px;
+	text-align: left;
+	
+}
+
+#milestones-hdr {
+	width: 300px;
+	height: 20px;
+	position:absolute;
+	left:0px;
+	top:450px;
+	border-top: 2px ridge #FFD700;
+	text-align: center;
+
+}
+
+#milestones {
+	margin: 5px;
+	border: 0;
+	width: 300px;
+	height: 130px;
+	position:absolute;
+	left:0px;
+	top:470px;
+	text-align: left;
+}
+
+#today ul {
+	margin: 0;
+	list-style-type: none;
+	float: left;
+	padding-left: 5px;
+	width: 100%;
+}
+
+#today ul li {
+	font-size: .8em;
+	border-bottom: thin solid #cccccc;
+	text-align: left;
+	margin-bottom: 2px;
+}
+
+img {
+	border: 0;
+}
+
+.task {
+	color: blue;
+	/*font-family: sans-serif;*/
+}
+
+#milestones img {
+	border: none;
+	height: 15px;
+	vertical-align: middle;
+}
+
+#milestones td {
+	padding: 0;
+	margin-bottom: 1px;
+}
+
+#milestones a {
+	text-decoration: none;
+	color: blue;
+}
+
+h4 {
+	margin: 0;
+}
+
+#structures img {
+	border: 0;
+	position: absolute;
+}
+
+.pyramid {
+	background: url('pyramid.png');
+	top: 37px; 
+	left: 100px;
+}
+
+.pyramid:hover {
+   background: url('pyramid-h.png');
+}
+
+
+
+
+/*
+ * SimpleModal OSX Style Modal Dialog
+ * http://simplemodal.com
+ *
+ * Copyright (c) 2013 Eric Martin - http://ericmmartin.com
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ */
+
+#osx-modal-content, #osx-modal-data {display:none;}
+
+/* Overlay */
+#osx-overlay {background-color:#000;}
+
+/* Container */
+#osx-container {background-color:#eee; color:#000; font: 16px/24px "Lucida Grande",Arial,sans-serif; padding-bottom:4px; width:600px; -moz-border-radius-bottomleft:6px; -webkit-border-bottom-left-radius:6px; -moz-border-radius-bottomright:6px; -webkit-border-bottom-right-radius:6px; -moz-border-radius-topleft:6px; -webkit-border-top-left-radius:6px; -moz-border-radius-topright:6px; -webkit-border-top-right-radius:6px; border-radius:6px 6px 6px 6px; -moz-box-shadow:0 0 64px #000; -webkit-box-shadow:0 0 64px #000; box-shadow:0 0 64px #000;}
+#osx-container a {color:#ddd;}
+#osx-container #osx-modal-title {color:#000; background-color:#ddd; border-bottom:1px solid #ccc; font-weight:bold; padding:6px 8px; text-shadow:0 1px 0 #f4f4f4;}
+#osx-container .close {display:none; position:absolute; right:0; top:0;}
+#osx-container .close a {display:block; color:#777; font-weight:bold; padding:6px 12px 0; text-decoration:none; text-shadow:0 1px 0 #f4f4f4;}
+#osx-container .close a:hover {color:#000;}
+#osx-container #osx-modal-data {font-size:12px; padding:6px 12px;}
+#osx-container h2 {margin:10px 0 6px;}
+#osx-container p {margin-bottom:10px;}
+#osx-container span {color:#777;}
+
+
+
+
+
+/****basic****/
+.mymodal {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#555;}
+
+/* Container */
+#simplemodal-container {height:400px; width:600px; color:#333; background: url("images/blueprint.jpg"); padding:0px; -moz-border-radius-bottomleft:6px; -webkit-border-bottom-left-radius:6px; -moz-border-radius-bottomright:6px; -webkit-border-bottom-right-radius:6px; border-radius:6px 6px 6px 6px; -moz-box-shadow:0 0 64px #000; -webkit-box-shadow:0 0 64px #000; box-shadow:0 0 64px #000; position: relative;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+
+
+.mymodal h2 {
+	color:#000; 
+	margin: 0;
+	background-color: rgba(255,255,255,.6); 
+	font-weight:bold; 
+	padding: 8px;
+	text-shadow:0 1px 0 #f4f4f4;
+	text-align: left;
+	border-radius: 6px;
+}
+.mymodal h3 {
+	color:#000; 
+	margin: 0;
+	font-size: 1em;
+	text-align: right;
+	vertical-align: top;
+}
+.mymodal p {
+	text-align: left;
+}
+
+.mymodal a {
+	text-decoration: none;
+	color: black;
+}
+
+.mymodal td{
+	vertical-align: top;
+	padding: 5px;
+}
+.modal-actions img{
+	height: 45px;
+	margin: 10px;
+}
+.modal-options img {
+	height: 75px;
+}
+
+.buttons{
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+}
+
+.cancel {
+	position: absolute;
+	right: 264px;
+	bottom: 10px;
+	font-size: .9em; 
+	padding: 4px 8px;
+}
+
+.modal-arrows button {
+	font-size: 1em;
+	padding: 4px 16px;
+}
+
+.next-arrow {
+	position: absolute;
+	right: 200px;
+	bottom: 10px;
+}
+
+.prev-arrow {
+	position: absolute;
+	left: 200px;
+	bottom: 10px;
+}
+
+.blok {
+	float: left;
+	height: 200px;
+}
+
+.closeIcon{
+	background-image: url("images/close_icon.png");
+	display: inline;
+	width:25px; 
+	height:25px; 
+	z-index:3200; 
+	position:absolute; 
+	top:-5px; 
+	right:-5px; 
+	cursor:pointer;
+}
+
+.modal-actions {
+	width: 100%;
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	text-align: center;
+}
+
+#actions img {
+	width: 40px;
+	margin: 5px;
+}
+
+.check-or-x {
+	float: right;
+	padding-right: 8px;
+}
+
+div.ui-datepicker{
+ font-size:10px;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }

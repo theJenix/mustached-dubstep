@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+	<script src="jquery-1.11.0.js"></script>
+	<script src="jqueryui/jquery-ui-1.10.4.js"></script>
+	<script src="jquery.ui.timepicker.js"></script>
+    <script src="jquery.simplemodal-1.4.4.js"></script>
+	<link href="jqueryui/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css" />
+	<link href="jquery.ui.timepicker.css" rel="stylesheet" type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript">
+	
+
+		$(document).ready(function() {
+        	$('#pyramid').attr("title", 'Finals' );
+        	$('.floppydisk').attr("title", 'Save' );
+        	$('#edit-task').attr("title", 'Edit' );
+        	$('#checkmark3').attr("title", 'OK' );
+        	$('.bulldozer').attr("title","Remove");
+        	$('#hall').attr("title", 'CS 3230 HW' );
+        	$('#ui-design-pt3').attr("title", 'UI Design Pt. 3<br>Due: April 4, 2014<br>Progress: 75%' );
+        	$('#uidesign').attr("title", 'UI Design<br>MWF 9:00am' );
+        	$('#conducting').attr("title", 'Conducting' );
+        	$('#weaving').attr("title", 'Underwater Basketweaving' );
+        	$('#drownproofing').attr("title", 'Drownproofing' );
+        	$('#scaling').attr("title", 'Scaling Urban Structures' );
+        	
+        	$('.checkmark').attr("title","Completed?");
+        	$('.x').attr("title","Not completed?");
+        	$('#checkmark').attr("title", "Click if all of today's tasks were completed" );
+        	$('#x').attr("title", "Click if none of today's tasks were completed" );
+        	
+        	$('.next-arrow').attr("title", 'Next' );
+        	$('.prev-arrow').attr("title", 'Previous' );
+        	
+        	$('#finish-setup').attr("title", '');
+         	
+         	
+         	$('#hammer').hover(function(){this.src='images/hammer-h.png';}, function(){this.src="images/hammer.png";});
+         	$('#scroll').hover(function(){this.src='images/scroll-h.png';}, function(){this.src="images/scroll.png";});
+         	$('#calendar').hover(function(){this.src='images/calendar-h.png';}, function(){this.src="images/calendar.png";});
+         	$('#settings').hover(function(){this.src='images/gear-h.png';}, function(){this.src="images/gear.png";});
+         	$('.x').hover(function(){this.src='images/x-h.png';}, function(){this.src="images/x.png";});
+         	$('.checkmark').hover(function(){this.src='images/checkmark-h.png';}, function(){this.src="images/checkmark.png";});
+         	
+         	$('#pt3-link').hover(function(){ document.getElementById("ui-design-pt3").src='images/ui-house-h.png';}, function(){document.getElementById("ui-design-pt3").src='images/ui-house.png';});
+         	$('#3230hw-link').hover(function(){ document.getElementById("hall").src='images/hall-h.png';}, function(){document.getElementById("hall").src='images/hall.png';});
+         	$('#finals-link').hover(function(){ document.getElementById("pyramid").src='images/pyramid-h.png';}, function(){document.getElementById("pyramid").src='images/pyramid.png';});
+         	$('#settings-link').hover(function(){ document.getElementById("settings").src='images/gear-h.png';}, function(){document.getElementById("settings").src='images/gear.png';});
+         });
+
+         
+        jQuery(function ($) {
+        
+        	$("[title]").each(function(){
+    			$(this).tooltip({ content: $(this).attr("title")});
+			});    // It allows html content to tooltip.
+			
+			// Load dialog on click
+			$('#setup1').modal({focus:false});
+			$('#setup1-next').click(function (e) {
+				$.modal.close();
+				$('#setup2').modal({focus:false});
+				return false;
+			});
+			$('#setup2-next').click(function (e) {
+				$.modal.close();
+				$('#setup3').modal({focus:false});
+				return false;
+			});
+			$('#setup2-prev').click(function (e) {
+				$.modal.close();
+				$('#setup1').modal({focus:false});
+				return false;
+			});
+			$('#setup3-prev').click(function (e) {
+				$.modal.close();
+				$('#setup2').modal({focus:false});
+				return false;
+			});
+			$('#ui-design-pt3').click(function (e) {
+				$('#ui-design-pt3-modal-content').modal();
+				return false;
+			});
+			$('#edit-task').click(function (e) {
+				$.modal.close();
+				$('#ui-design-pt3-edit-modal-content').modal();
+				return false;
+			});
+			$('#pt3-link').click(function (e) {
+				$('#ui-design-pt3-modal-content').modal();
+				return false;
+			});
+			$('#add1-next').click(function (e) {
+				$.modal.close();
+				$('#add2').modal();
+				return false;
+			});
+			$('#add2-next').click(function (e) {
+				$.modal.close();
+				$('#add3').modal();
+				return false;
+			});
+			$('#add2-prev').click(function (e) {
+				$.modal.close();
+				$('#add1').modal();
+				return false;
+			});
+			$('#add3-prev').click(function (e) {
+				$.modal.close();
+				$('#add2').modal();
+				return false;
+			});
+			$('#hammer').click(function (e) {
+				$('#add1').modal();
+				return false;
+			});
+			$('.closeIcon').click(function (e) {
+				$.modal.close();
+				return false;
+			});
+			
+			$(function() {
+    			$( ".timepicker" ).timepicker({
+    				showPeriod: true,
+    				showLeadingZero: true
+				});
+    			$( ".timespinner" ).spinner({
+    				min: 0,
+      				step: 0.5,
+      				numberFormat: "n"
+    			});
+    			$( ".progressspinner" ).spinner({
+    				min: 0,
+    				max: 100,
+      				step: 5,
+      				numberFormat: "n"
+    			});
+  			});
+  
+		});
+		
+		
+	</script>
+  </head>
+  
+  <body>
+		<!-- modal content -->
+		
+		<div class="mymodal" id="setup1">
+			<h2>Welcome to Priori City</h2>
+			<img class="blok" src="images/transparentVirgil.png" />
+			<table style="margin: auto; text-align: left;">
+				<tr><td><h3 style="text-align: left;">Welcome to Priori City, where tasks and events that you complete help build our city and attract residents! I am Virgil, your advisor. I am eager to get started, but first I need some information. Let's begin!</h3></td></tr>	
+			</table>
+			
+			<div class="buttons">
+				<div class="modal-arrows">
+					<button class="prev-arrow" disabled>&#10094;</button>
+					<button id="setup1-next" class="next-arrow">&#10095;</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="mymodal" id="setup2">
+			<h2>Welcome to Priori City</h2>
+			<img class="blok" src="images/transparentVirgil.png" />
+			<table style="margin: auto; text-align: left;">
+				<tr><td colspan="2"><h3 style="text-align: left;">Here you can customize your settings...</h3></td></tr>
+				<tr><td width="210px"><h3 style="text-align: left;">When do you start your day?</h3></td><td><p><input type="text" class="timepicker" value="7:30 AM"></p></td></tr>
+				<tr><td><h3 style="text-align: left;">When do you end your day?</h3></td><td><p><input type="text" class="timepicker" value="5:00 PM"></p></td></tr>
+				<tr><td><h3 style="text-align: left;">How long do you want to work on one project at a time?</h3></td><td><p><input class="timespinner" value="2.0"> hours</p></td></tr>
+			</table>
+			
+			<div class="buttons">
+				<div class="modal-arrows">
+					<button id="setup2-prev" class="prev-arrow">&#10094;</button>
+					<button id="setup2-next" class="next-arrow">&#10095;</button>
+				</div>
+			</div>
+		</div>
+		
+				<div class="mymodal" id="setup3">
+			<h2>Welcome to Priori City</h2>
+			<img class="blok" src="images/transparentVirgil.png" />
+			<table style="margin: auto; text-align: left;">
+				<tr><td><h3 style="text-align: left;">Here's what will happen...</h3></td></tr>
+				<tr><td width="200px"><h3 style="text-align: left;">I will schedule tasks for you between the hours of 8:00 AM and 6:00 PM.</h3></td></tr>
+				<tr><td><h3 style="text-align: left;">Your tasks will be broken up into work periods of 2 hours at a time.</td></tr>
+				<tr><td><h3 style="text-align: left;">You can always view and change these preferences by going to <a href="#" id="settings-link">Settings</a>.</td></tr>
+			</table>
+			
+			<div class="buttons">
+				<div class="modal-arrows">
+					<button id="setup3-prev" class="prev-arrow">&#10094;</button>
+					<button id="finish-setup" class="next-arrow" onclick="$.modal.close(); window.location.href = 'index.html';" style="right: 140px;">Take me to Priori City!</button>
+				</div>
+			</div>
+		</div>
+		
+
+		<!--^modal content^-->
+		
+    <div id="main">
+    	<div id="city">
+    		<div id="structures">
+    		
+    		</div> <!--structures-->
+    		<div id="actions">
+    			<a href="#"><img id="hammer" src="images/hammer.png" /></a>
+    			<img id="scroll" src="images/scroll.png" />
+    			<img id="calendar" src="images/calendar.png" />
+    			<img id="settings" src="images/gear.png" />
+    		</div> <!--actions-->
+    		<div id="footer">
+    		<p><span style="float:left; padding-left:5px;">11:47 AM</span><span style="float:right; padding-right:5px;">0 Blokes</span></p>
+    		</div> <!--footer-->
+    	</div> <!--city-->
+    	<div id="side">
+    		<div id="today-hdr">
+    		<h4>&#10094;&nbsp;&nbsp;&nbsp; Today, Tues. April 1 &nbsp;&nbsp;&nbsp;&#10095;</h4>
+    		</div> <!--today-hdr-->
+    		<div id="today">
+    			<ul>
+    				<li>&nbsp;&nbsp;8:00 AM - </li>
+    				<li>&nbsp;&nbsp;9:00 AM - </li>
+    				<li>10:00 AM - </li>
+    				<li style="background-color: rgba(0, 204, 255, .2);">11:00 AM - </li>
+    				<li>12:00 PM - </li>
+    				<li>&nbsp;&nbsp;1:00 PM - </li>
+    				<li>&nbsp;&nbsp;2:00 PM - </li>
+    				<li>&nbsp;&nbsp;3:00 PM - </li>
+    				<li>&nbsp;&nbsp;4:00 PM - </li>
+    				<li>&nbsp;&nbsp;5:00 PM - </li>
+    				<li>&nbsp;&nbsp;6:00 PM - </li>
+    				<li>&nbsp;&nbsp;7:00 PM - </li>
+    				<li>&nbsp;&nbsp;8:00 PM - </li>
+    				<li>&nbsp;&nbsp;9:00 PM - </li>
+    				<li>10:00 PM - </li>
+    				<li>11:00 PM - </li>
+    			</ul>
+    		</div> <!--today-->
+    		<div id="edit">
+    			<a href="#"><img id="checkmark" class="checkmark" src="images/checkmark.png" height="35px" style=" margin: 0px;" /></a>
+    			<a href="#"><img id="x" class="x" src="images/x.png" height="35px" style="margin: 0px;" /></a>
+    		</div> <!--edit-->
+    		
+    		<div id="tomorrow-hdr">
+    			<h4>Tomorrow</h4>
+    		</div> <!--tomorrow-hdr-->
+    		
+    		<div id="tomorrow">
+    			<p>
+    			</p>
+    		</div> <!--tomorrow-->
+    		
+    		<div id="milestones-hdr">
+    			<h4>Milestones<h4>
+    		</div> <!--milestones-hdr-->
+    		
+    		<div id="milestones">
+    		</div> <!--milestones-->
+    	</div> <!--side-->
+    </div> <!--main-->
+    
+    
+  </body>
+
+</html>

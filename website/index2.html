@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+	<script src="jquery-1.11.0.js"></script>
+	<script src="jqueryui/jquery-ui-1.10.4.js"></script>
+	<script src="jquery.ui.timepicker.js"></script>
+    <script src="jquery.simplemodal-1.4.4.js"></script>
+	<link href="jqueryui/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css" />
+	<link href="jquery.ui.timepicker.css" rel="stylesheet" type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript">
+	
+
+		$(document).ready(function() {
+			$('#pyramid').attr("title", 'Finals' );
+        	$('.floppydisk').attr("title", 'Save' );
+        	$('#edit-task').attr("title", 'Edit' );
+        	$('#checkmark3').attr("title", 'OK' );
+        	$('.bulldozer').attr("title","Remove");
+        	$('#hall').attr("title", 'CS 3230 HW' );
+        	$('#ui-design-pt3').attr("title", 'UI Design Pt. 3<br>Due: April 4, 2014<br>Progress: 75%' );
+        	$('#uidesign').attr("title", 'UI Design<br>MWF 9:00am' );
+        	$('#conducting').attr("title", 'Conducting' );
+        	$('#weaving').attr("title", 'Underwater Basketweaving' );
+        	$('#drownproofing').attr("title", 'Drownproofing' );
+        	$('#scaling').attr("title", 'Scaling Urban Structures' );
+        	
+        	$('.checkmark').attr("title","Completed?");
+        	$('.x').attr("title","Not completed?");
+        	$('#checkmark').attr("title", "Click if all of today's tasks were completed" );
+        	$('#x').attr("title", "Click if none of today's tasks were completed" );
+        	
+        	$('#new-task').attr('title', 'Conducting take-home exam<br>Due: Tomorrow<br>Progress: 0%' );
+        	$('.next-arrow').attr("title", 'Next' );
+        	$('.prev-arrow').attr("title", 'Previous' );
+        	
+        	$('#finish').attr("title", '' );
+
+         	$('#hammer').hover(function(){this.src='images/hammer-h.png';}, function(){this.src="images/hammer.png";});
+         	$('#scroll').hover(function(){this.src='images/scroll-h.png';}, function(){this.src="images/scroll.png";});
+         	$('#calendar').hover(function(){this.src='images/calendar-h.png';}, function(){this.src="images/calendar.png";});
+         	$('#settings').hover(function(){this.src='images/gear-h.png';}, function(){this.src="images/gear.png";});
+         	$('.x').hover(function(){this.src='images/x-h.png';}, function(){this.src="images/x.png";});
+         	$('.checkmark').hover(function(){this.src='images/checkmark-h.png';}, function(){this.src="images/checkmark.png";});
+         	
+         	$('#exam-link').hover(function(){ document.getElementById("new-task").src='images/ui-house-h.png';}, function(){document.getElementById("new-task").src='images/ui-house.png';});
+         	$('#pt3-link').hover(function(){ document.getElementById("ui-design-pt3").src='images/ui-house-h.png';}, function(){document.getElementById("ui-design-pt3").src='images/ui-house.png';});
+         	$('#3230hw-link').hover(function(){ document.getElementById("hall").src='images/hall-h.png';}, function(){document.getElementById("hall").src='images/hall.png';});
+         	$('#finals-link').hover(function(){ document.getElementById("pyramid").src='images/pyramid-h.png';}, function(){document.getElementById("pyramid").src='images/pyramid.png';});
+         	
+         });
+
+         
+        jQuery(function ($) {
+        	$("[title]").each(function(){
+    			$(this).tooltip({ content: $(this).attr("title")});
+			});    // It allows html content to tooltip.
+        
+			// Load dialog on click
+			$('#ui-design-pt3').click(function (e) {
+				$('#ui-design-pt3-modal-content').modal();
+				return false;
+			});
+			$('#pt3-link').click(function (e) {
+				$('#ui-design-pt3-modal-content').modal();
+				return false;
+			});
+			$('#edit-task').click(function (e) {
+				$.modal.close();
+				$('#ui-design-pt3-edit-modal-content').modal();
+				return false;
+			});
+			$('#edit-new-task').click(function (e) {
+				$.modal.close();
+				$('#new-task-edit-modal-content').modal();
+				return false;
+			});
+			$('#new-task').click(function (e) {
+				$('#new-task-modal-content').modal();
+				return false;
+			});
+			$('#exam-link').click(function (e) {
+				$('#new-task-modal-content').modal();
+				return false;
+			});
+			$('#add1-next').click(function (e) {
+				$.modal.close();
+				$('#add2').modal();
+				return false;
+			});
+			$('#add2-next').click(function (e) {
+				$.modal.close();
+				$('#add3').modal();
+				return false;
+			});
+			$('#add2-prev').click(function (e) {
+				$.modal.close();
+				$('#add1').modal();
+				return false;
+			});
+			$('#add3-prev').click(function (e) {
+				$.modal.close();
+				$('#add2').modal();
+				return false;
+			});
+			$('#hammer').click(function (e) {
+				$('#add1').modal();
+				return false;
+			});
+			$('.closeIcon').click(function (e) {
+				$.modal.close();
+				return false;
+			});
+			
+			$(function() {
+    			$( ".datepicker" ).datepicker();
+    			$( ".timepicker" ).timepicker({
+    				showPeriod: true,
+    				showLeadingZero: true
+				});
+    			$( ".timespinner" ).spinner({
+    				min: 0,
+      				step: 0.5,
+      				numberFormat: "n"
+    			});
+    			$( ".progressspinner" ).spinner({
+    				min: 0,
+    				max: 100,
+      				step: 5,
+      				numberFormat: "n"
+    			});
+  			});
+  
+		});
+		
+		
+	</script>
+  </head>
+  
+  <body>
+		<!-- modal content -->
+		
+		<div class="mymodal addmodal" id="add1">
+			<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
+			<h2>Add</h2>
+			<img class="blok" src="images/transparentBlok.png" />
+			<table style="margin: auto; text-align: left;">
+				<tr><td><h3 style="text-align: left;">Howdy Architect!<br>What would you like to add?</h3></td></tr>
+				<tr><td><input name="type" type="radio" value="task" checked>Task<br>
+<input type="radio" name="type" value="event">Event</td></tr>	
+			</table>
+			
+			<div class="buttons">
+				<button class="simplemodal-close cancel">Cancel</button>
+				<div class="modal-arrows">
+					<button class="prev-arrow" disabled>&#10094;</button>
+					<button id="add1-next" class="next-arrow">&#10095;</button>
+				</div>
+			</div>
+		</div>
+		
+				<div class="mymodal addmodal" id="add2">
+			<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
+			<h2>Add Task</h2>
+			<img class="blok" src="images/transparentBlok.png" />
+			<table style="margin: auto; text-align: left;">
+				<tr><td colspan="2"><h3 style="text-align: left;">Tasks help build our city! What's the plan?</h3></td></tr>
+				<tr><td><h3>Name:</h3></td><td><p><input type="text"></p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" class="datepicker" value="date" ></p><input type="text" class="timepicker" value="time"></p></td></tr>
+				<tr><td><h3>Estimated Time:</h3></td><td><p><input class="timespinner" value="2.0"> hours</p></td></tr>
+				<tr><td><h3>Priority:</h3></td><td><p><select>
+<option value="high" selected>High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+</select></p></td></tr>
+				<tr><td><h3>Progress:</h3></td><td><p><input class="progressspinner" value="0">%</p></td></tr>
+				<tr><td><h3>Notes:</h3></td><td><p><textarea rows="5" cols="20"> </textarea></p></td></tr>	
+			</table>
+			
+			<div class="buttons">
+				<button class="simplemodal-close cancel">Cancel</button>
+				<div class="modal-arrows">
+					<button id="add2-prev" class="prev-arrow">&#10094;</button>
+					<button id="add2-next" class="next-arrow">&#10095;</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="mymodal addmodal" id="add3">
+			<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
+			<h2>Add Task</h2>
+			<img class="blok" src="images/transparentBlok.png" />
+			<table style="margin: auto;">
+				<tr><td><h3 style="text-align: left;">According to those specifications, here are some options of what you can build!</h3></td></tr>
+				<tr><td><div class="modal-options"><input name="type" type="radio" value="house" checked><img src="images/house-option.png" /><input name="type" type="radio" value="house"><img src="images/house-option.png" /><input name="type" type="radio" value="house"><img src="images/house-option.png" /></div></td></tr>	
+			</table>
+			
+			<div class="buttons">
+				<button class="simplemodal-close cancel">Cancel</button>
+				<div class="modal-arrows">
+					<button id="add3-prev" class="prev-arrow">&#10094;</button>
+					<button class="next-arrow simplemodal-close" id="finish">Finish!</button>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="mymodal" id="ui-design-pt3-modal-content">
+		<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
+			<h2>Task Details</h2>
+			<table style="margin: auto;">
+				<tr><td><h3>Name:</h3></td><td><p>UI Design Pt. 3</p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p>04/04/2014 11:55 PM</p></td></tr>
+				<tr><td><h3>Estimated Time:</h3></td><td><p>6 hours</p></td></tr>
+				<tr><td><h3>Priority:</h3></td><td><p>High</p></td></tr>
+				<tr><td><h3>Progress:</h3></td><td><p>75%</p></td></tr>
+				<tr><td><h3>Notes:</h3></td><td><p>Group meeting Wednesday<br>Create images<br>Work on paper</p></td></tr>	
+				
+			</table>
+				<div class="modal-actions"><img id="edit-task" src="images/pencil.png" onmouseover="this.src='images/pencil-h.png'"
+onmouseout="this.src='images/pencil.png'" "/>
+    			<img class="bulldozer" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
+onmouseout="this.src='images/bulldozer.png'" />
+    			</div>
+		</div>
+		
+		
+		<div class="mymodal" id="ui-design-pt3-edit-modal-content">
+		<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
+			<h2>Task Details</h2>
+			<table style="margin: auto;">
+				<tr><td><h3>Name:</h3></td><td><p><input type="text" value="UI Design Pt. 3"></p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="04/04/2014" class="datepicker"><input type="text" value="11:55 PM" class="timepicker"></p></td></tr>
+				<tr><td><h3>Estimated Time:</h3></td><td><p><input class="timespinner" value="6.0"> hours</p></td></tr>
+				<tr><td><h3>Priority:</h3></td><td><p><select>
+<option value="high" selected>High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+</select></p></td></tr>
+				<tr><td><h3>Progress:</h3></td><td><p><input class="progressspinner" value="75">%</p></td></tr>
+				<tr><td><h3>Notes:</h3></td><td><p><textarea rows="5" cols="20">
+Group meeting Wednesday
+Create images
+Work on paper
+</textarea></p></td></tr>	
+				
+			</table>
+				<div class="modal-actions">
+    			<img class="simplemodal-close floppydisk" src="images/floppy-disk-icon.png" onmouseover="this.src='images/floppy-disk-icon-h.png'"
+onmouseout="this.src='images/floppy-disk-icon.png'" />
+    			<img class="bulldozer" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
+onmouseout="this.src='images/bulldozer.png'" />
+    			</div>
+		</div>
+		
+		
+		<div class="mymodal" id="new-task-modal-content">
+		<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
+			<h2>Task Details</h2>
+			<table style="margin: auto;">
+				<tr><td><h3>Name:</h3></td><td><p>Conducting take-home exam</p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p>04/02/2014 12:05 PM</p></td></tr>
+				<tr><td><h3>Estimated Time:</h3></td><td><p>2 hours</p></td></tr>
+				<tr><td><h3>Priority:</h3></td><td><p>Medium</p></td></tr>
+				<tr><td><h3>Progress:</h3></td><td><p>0%</p></td></tr>
+				<tr><td><h3>Notes:</h3></td><td><p></p></td></tr>	
+				
+			</table>
+				<div class="modal-actions"><img id="edit-new-task" title="Edit" src="images/pencil.png" onmouseover="this.src='images/pencil-h.png'"
+onmouseout="this.src='images/pencil.png'" "/>
+    			<img class="bulldozer" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
+onmouseout="this.src='images/bulldozer.png'" />
+    			</div>
+		</div>
+		
+		<div class="mymodal" id="new-task-edit-modal-content">
+		<span class="closeIcon"><img class="closeIcon" src="images/close_icon.png" style="width: 25px; height: 25px;" /></span>
+			<h2>Task Details</h2>
+			<table style="margin: auto;">
+				<tr><td><h3>Name:</h3></td><td><p><input type="text" value="Conducting take-home exam"></p></td></tr>
+				<tr><td><h3>Deadline:</h3></td><td><p><input type="text" value="04/02/2014" class="datepicker"><input type="text" value="12:05 PM" class="timepicker"></p></td></tr>
+				<tr><td><h3>Estimated Time:</h3></td><td><p><input class="timespinner" value="2.0"> hours</p></td></tr>
+				<tr><td><h3>Priority:</h3></td><td><p><select>
+<option value="high">High</option>
+<option value="medium" selected>Medium</option>
+<option value="low">Low</option>
+</select></p></td></tr>
+				<tr><td><h3>Progress:</h3></td><td><p><input class="progressspinner" value="0">%</p></td></tr>
+				<tr><td><h3>Notes:</h3></td><td><p><textarea rows="5" cols="20">
+</textarea></p></td></tr>	
+				
+			</table>
+				<div class="modal-actions">
+    			<img class="simplemodal-close floppydisk" src="images/floppy-disk-icon.png" onmouseover="this.src='images/floppy-disk-icon-h.png'"
+onmouseout="this.src='images/floppy-disk-icon.png'" />
+    			<img class="bulldozer" src="images/bulldozer.png" onmouseover="this.src='images/bulldozer-h.png'"
+onmouseout="this.src='images/bulldozer.png'" />
+    			</div>
+		</div>
+		<!--^modal content^-->
+		
+    <div id="main">
+    	<div id="city">
+    		<div id="structures">
+    			<img id="pyramid" src="images/pyramid.png" style="top: 37px; left: 100px;" onmouseover="this.src='images/pyramid-h.png'"
+onmouseout="this.src='images/pyramid.png'" />
+    			<img id="hall" src="images/hall.png" style="top: 319px; left: 215px;" 
+    			onmouseover="this.src='images/hall-h.png'"
+onmouseout="this.src='images/hall.png'"/>
+    			<a href="#"><img id="ui-design-pt3" src="images/ui-house.png" style="top: 409px; left: 342px;" 
+    			onmouseover="this.src='images/ui-house-h.png'"
+onmouseout="this.src='images/ui-house.png'"/></a>
+
+				<img id="uidesign" src="images/uidesign.png" style="top: 394px; left: 322px;" 
+    			onmouseover="this.src='images/uidesign-h.png'"
+onmouseout="this.src='images/uidesign.png'"/>
+				<img id="conducting" src="images/conducting.png" style="top: 291px; left: 347px;" 
+    			onmouseover="this.src='images/conducting-h.png'"
+onmouseout="this.src='images/conducting.png'"/>
+				<img id="weaving" src="images/weaving.png" style="top: 431px; left: 425px;" 
+    			onmouseover="this.src='images/weaving-h.png'"
+onmouseout="this.src='images/weaving.png'"/>
+				<img id="drownproofing" src="images/drownproofing.png" style="top: 473px; left: 182px;" 
+    			onmouseover="this.src='images/drownproofing-h.png'"
+onmouseout="this.src='images/drownproofing.png'"/>
+				<img id="scaling" src="images/scaling.png" style="top: 28px; left: 448px;" 
+    			onmouseover="this.src='images/scaling-h.png'"
+onmouseout="this.src='images/scaling.png'"/>
+				<a href="#"><img id="new-task" src="images/ui-house-h.png" style="top: 330px; left: 400px;" 
+    			onmouseover="this.src='images/ui-house-h.png'"
+onmouseout="this.src='images/ui-house.png'"/></a>
+    		
+    		</div> <!--structures-->
+    		<div id="actions">
+    			<a href="#"><img id="hammer" title="Add" src="images/hammer.png" /></a>
+    			<a href="#"><img id="scroll" title="View Tasks" src="images/scroll.png" /></a>
+    			<a href="#"><img id="calendar" title="View Calendar" src="images/calendar.png" onclick="window.open('calendar2.html', '_blank');" /></a>
+    			<a href="#"><img id="settings" title="Settings" src="images/gear.png" /></a>
+    		</div> <!--actions-->
+    		<div id="footer">
+    		<p><span style="float:left; padding-left:5px;">11:47 AM</span><span style="float:right; padding-right:5px;">850 Blokes</span></p>
+    		</div> <!--footer-->
+    	</div> <!--city-->
+    	<div id="side">
+    		<div id="today-hdr">
+    		<h4>&#10094;&nbsp;&nbsp;&nbsp; Today, Tues. April 1 &nbsp;&nbsp;&nbsp;&#10095;</h4>
+    		</div> <!--today-hdr-->
+    		<div id="today">
+    			<ul>
+    				<li>&nbsp;&nbsp;8:00 AM - </li>
+    				<li>&nbsp;&nbsp;9:00 AM - </li>
+    				<li><strike>10:00 AM - CS 3750</strike><span class="check-or-x"><img src="images/checkmark-h.png" height="15px" style=" margin: 0px;" /><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
+    				<li style="background-color: rgba(0, 204, 255, .2);">11:00 AM - CS 3230 HW<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
+    				<li>12:00 PM - CS 3230 HW<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
+    				<li>&nbsp;&nbsp;1:00 PM - </li>
+    				<li>&nbsp;&nbsp;2:00 PM - Underwater Basketweaving<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
+    				<li>&nbsp;&nbsp;3:00 PM - Drownproofing<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
+    				<li>&nbsp;&nbsp;4:00 PM - Conducting take-home exam<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
+    				<li>&nbsp;&nbsp;5:00 PM - Conducting take-home exam<span class="check-or-x"><a href="#"><img class="checkmark" src="images/checkmark.png" height="15px" style=" margin: 0px;" /></a><a href="#"><img class="x" src="images/x.png" height="15px" style="margin: 0px;" /></a></span></li>
+    				<li>&nbsp;&nbsp;6:00 PM - </li>
+    				<li>&nbsp;&nbsp;7:00 PM - </li>
+    				<li>&nbsp;&nbsp;8:00 PM - </li>
+    				<li>&nbsp;&nbsp;9:00 PM - </li>
+    				<li>10:00 PM - </li>
+    				<li>11:00 PM - </li>
+    			</ul>
+    		</div> <!--today-->
+    		<div id="edit">
+    			<a href="#"><img id="checkmark" class="checkmark" src="images/checkmark.png" height="35px" style=" margin: 0px;" /></a>
+    			<a href="#"><img id="x" class="x" src="images/x.png" height="35px" style="margin: 0px;" /></a>
+    		</div> <!--edit-->
+    		
+    		<div id="tomorrow-hdr">
+    			<h4>Tomorrow</h4>
+    		</div> <!--tomorrow-hdr-->
+    		
+    		<div id="tomorrow">
+    			<p>
+    				- UI Design Pt. 3 <br>
+					- MGMT 2000 Conducting <br>
+					- Scaling Urban Structures
+    			</p>
+    		</div> <!--tomorrow-->
+    		
+    		<div id="milestones-hdr">
+    			<h4>Milestones<h4>
+    		</div> <!--milestones-hdr-->
+    		
+    		<div id="milestones">
+    			<table style="width: 100%;">
+    				<tr><td><p>House for <a href="#" id="exam-link">Take-home exam</a></p></td>
+    					<td><img src="images/progressbar3.jpg"/></td></tr>
+    				<tr><td><p>House for <a href="#" id="pt3-link">UI Design Pt. 3</a></p></td>
+    					<td><img src="images/progressbar2.jpg"/></td></tr>
+    				<tr><td><p>Hall of <a href="#" id="3230hw-link">CS 3230 HW</a></p></span></td>
+    					<td><img src="images/progressbar1.jpg"/></td></tr>
+    				<tr><td><p>Pyramid of <a href="#" id="finals-link">Finals</a></p></td>
+    					<td><img src="images/progressbar3.jpg"/></td></tr>
+    		</div> <!--milestones-->
+    	</div> <!--side-->
+    </div> <!--main-->
+    
+    
+  </body>
+
+</html>
